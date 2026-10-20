@@ -21,6 +21,13 @@ import QuickActionCard from '../components/QuickActionCard'
 import NutriaGuideAnimation from '../components/NutriaGuideAnimation'
 import './CaseDetailView.css'
 
+const getAssetUrl = (path) => {
+  if (!path) return ''
+  if (path.startsWith('http')) return path
+  const base = import.meta.env.BASE_URL || '/'
+  return `${base}${path.replace(/^\//, '')}`
+}
+
 export default function CaseDetailView({
   caseData,
   onStartSimulation,
@@ -115,7 +122,7 @@ export default function CaseDetailView({
               {caseData.images?.scene && (
                 <div className="scenario-image-wrap">
                   <img
-                    src={caseData.images.scene}
+                    src={getAssetUrl(caseData.images.scene)}
                     alt={caseData.images.sceneAlt || caseData.title}
                     className="scenario-img"
                     loading="lazy"
@@ -196,7 +203,7 @@ export default function CaseDetailView({
               <Card className="clinical-action-card" borderVariant="primary">
                 <div className="clinical-image-wrap">
                   <img
-                    src={caseData.images.action}
+                    src={getAssetUrl(caseData.images.action)}
                     alt={caseData.images.actionAlt || caseData.title}
                     className="clinical-action-img"
                     loading="lazy"
