@@ -1,0 +1,46 @@
+.hero-progress {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.hero-progress__labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--neutral-700);
+}
+
+.hero-progress__track {
+  width: 100%;
+  height: 14px;
+  background-color: var(--neutral-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.hero-progress__bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-progress__bar--primary {
+  background: linear-gradient(90deg, var(--primary-500), var(--primary-600));
+}
+
+.hero-progress__bar--secondary {
+  background: linear-gradient(90deg, #fbbf24, var(--accent-amber));
+}
+
+.hero-progress__bar--success {
+  background: linear-gradient(90deg, #34d399, var(--status-success));
+}
+
+.hero-progress__bar--danger {
+  background: linear-gradient(90deg, #f87171, var(--status-danger));
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "atragantamiento-ovace",
+    "number": 1,
+    "title": "Atragantamiento (OVACE)",
+    "shortDescription": "Identificación de asfixia, maniobra de Heimlich pediátrica y soporte vital en el comedor o aula.",
+    "category": "Emergencia Respiratoria",
+    "targetAudience": "Docentes de Primaria",
+    "estimatedMinutes": 6,
+    "pointsReward": 50,
+    "icon": "AlertTriangle",
+    "color": "danger",
+    "isLocked": false,
+    "learningGoals": [
+      "Diferenciar tos efectiva de obstrucción total",
+      "Ejecutar compresiones abdominales con postura adaptada a la estatura del escolar",
+      "Activar Línea 123 y transicionar a RCP sin barridos a ciegas"
+    ]
+  },
+  {
+    "id": "perdida-dientes-avulsion",
+    "number": 2,
+    "title": "Pérdida de Dientes por Golpe",
+    "shortDescription": "Protocolo IADT ante avulsión de diente permanente en patios y canchas de educación física.",
+    "category": "Traumatismo Dental",
+    "targetAudience": "Docentes de Primaria",
+    "estimatedMinutes": 5,
+    "pointsReward": 50,
+    "icon": "Smile",
+    "color": "primary",
+    "isLocked": false,
+    "learningGoals": [
+      "Manipular el diente exclusivamente por la corona sin tocar la raíz",
+      "Sumergir en medio húmedo óptimo (leche fría o saliva) y nunca transportar seco",
+      "Controlar la hemorragia alveolar y trasladar en la ventana crítica de 30-60 minutos"
+    ]
+  },
+  {
+    "id": "paro-cardiaco-infarto",
+    "number": 3,
+    "title": "Sospecha de Infarto y Paro Cardíaco",
+    "shortDescription": "Detección de dolor torácico en adultos de la institución, activación 123, RCP y uso del DEA escolar.",
+    "category": "Emergencia Cardiovascular",
+    "targetAudience": "Docentes y Personal Escolar",
+    "estimatedMinutes": 8,
+    "pointsReward": 50,
+    "icon": "Activity",
+    "color": "danger",
+    "isLocked": false,
+    "learningGoals": [
+      "Identificar signos de alarma coronaria y posicionar en semisentado",
+      "Comprobar inconsciencia sin perder tiempo buscando pulso",
+      "Compresiones torácicas de alta calidad (100-120 cpm) y operación segura del DEA"
+    ]
+  },
+  {
+    "id": "chichones-golpes-cabeza",
+    "number": 4,
+    "title": "Golpes en la Cabeza y Chichón",
+    "shortDescription": "Manejo seguro de hematomas craneales en el recreo y detección oportuna de banderas rojas neurológicas.",
+    "category": "Traumatismo Craneal",
+    "targetAudience": "Docentes de Primaria",
+    "estimatedMinutes": 6,
+    "pointsReward": 50,
+    "icon": "Brain",
+    "color": "warning",
+    "isLocked": false,
+    "learningGoals": [
+      "Aplicar frío indirecto sin frotar ni presionar con monedas",
+      "Vigilar banderas rojas: vómitos recurrentes, somnolencia y anisocoria",
+      "Pautas de observación médica escrita para las 24-48 horas posteriores"
+    ]
+  },
+  {
+    "id": "caidas-fracturas-torceduras",
+    "number": 5,
+    "title": "Caídas, Fracturas y Torceduras",
+    "shortDescription": "Inmovilización de deformidades óseas, protocolo RICE en esguinces y prevención de complicaciones.",
+    "category": "Traumatismo Osteomuscular",
+    "targetAudience": "Docentes de Primaria",
+    "estimatedMinutes": 7,
+    "pointsReward": 50,
+    "icon": "ShieldAlert",
+    "color": "primary",
+    "isLocked": false,
+    "learningGoals": [
+      "Inmovilizar en la posición encontrada sin intentar alinear el hueso",
+      "Aplicar reposo, hielo, compresión suave y elevación en torceduras agudas",
+      "Retirar anillos preventivamente y mantener ayuno preoperatorio estricto"
+    ]
+  }
+]

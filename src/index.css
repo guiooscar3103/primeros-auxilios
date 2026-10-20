@@ -1,0 +1,39 @@
+@import './styles/design-system.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-body);
+  background: linear-gradient(180deg, #f0f9ff 0%, #f8fafc 100%);
+  color: var(--neutral-800);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tipografía amigable para niños */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  color: var(--neutral-900);
+  line-height: 1.25;
+}
+
+button {
+  font-family: var(--font-family-heading);
+}
+
+/* Enfoque visible para accesibilidad mediante teclado */
+:focus-visible {
+  outline: 3px solid var(--primary-500);
+  outline-offset: 3px;
+}

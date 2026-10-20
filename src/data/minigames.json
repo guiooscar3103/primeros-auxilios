@@ -1,0 +1,80 @@
+{
+  "classifierGame": {
+    "title": "Triage Escolar: ¿Atención Básica o Activación Línea 123?",
+    "instruction": "Como docente responsable, evalúa cada situación ocurrida en la escuela y decide si requiere activación inmediata del sistema de emergencias médicas (Línea 123) o manejo y observación básica en la enfermería escolar.",
+    "categories": [
+      {
+        "id": "school_care",
+        "name": "Atención Básica en Escuela",
+        "icon": "HeartHandshake",
+        "color": "primary",
+        "description": "Curación local, reposo, compresa fría y notificación preventiva a acudientes."
+      },
+      {
+        "id": "emergency_123",
+        "name": "Activación Inmediata Línea 123",
+        "icon": "PhoneCall",
+        "color": "danger",
+        "description": "Riesgo vital inminente, vía aérea comprometida, pérdida de conciencia o trauma mayor."
+      }
+    ],
+    "cards": [
+      {
+        "id": "c1",
+        "situation": "Un alumno de 8 años se atraganta en el comedor, no emite sonido, se lleva las manos al cuello y sus labios se tornan morados.",
+        "icon": "AlertTriangle",
+        "correctCategory": "emergency_123",
+        "feedback": "¡Acción crítica! Es una obstrucción completa de vía aérea (OVACE grave). Requiere maniobra de Heimlich inmediata y activación urgente de la Línea 123."
+      },
+      {
+        "id": "c2",
+        "situation": "Un estudiante tropieza en el pasto y presenta un raspón superficial en la rodilla con sangrado capilar leve.",
+        "icon": "Bandage",
+        "correctCategory": "school_care",
+        "feedback": "¡Correcto! Lavado suave con abundante agua y jabón neutro, secado con gasa limpia y protección. No requiere ambulancia."
+      },
+      {
+        "id": "c3",
+        "situation": "Un docente colapsa en el pasillo, no responde al llamado firme y su pecho no se mueve en 10 segundos.",
+        "icon": "AlertTriangle",
+        "correctCategory": "emergency_123",
+        "feedback": "¡Prioridad máxima! Paro cardiorrespiratorio presunto. Activar Línea 123, solicitar el DEA escolar de inmediato e iniciar ciclos de RCP de alta calidad."
+      },
+      {
+        "id": "c4",
+        "situation": "Salpicadura accidental de pintura lavable para cartulina en el antebrazo de un estudiante sin dolor ni irritación.",
+        "icon": "Droplets",
+        "correctCategory": "school_care",
+        "feedback": "¡Muy bien! Enjuagar con agua corriente en el lavamanos del salón. No constituye ninguna emergencia sanitaria."
+      },
+      {
+        "id": "c5",
+        "situation": "Un escolar cae desde un pasamanos de 2 metros; se golpea la cabeza, vomita dos veces y muestra somnolencia anormal.",
+        "icon": "AlertTriangle",
+        "correctCategory": "emergency_123",
+        "feedback": "¡Excelente discernimiento clínico! Los vómitos repetidos y la alteración de la conciencia son banderas rojas de trauma craneoencefálico que exigen traslado urgente al 123."
+      },
+      {
+        "id": "c6",
+        "situation": "Picadura leve de insecto en el brazo durante la clase de ciencias, sin dificultad respiratoria, hinchazón labial ni dolor agudo.",
+        "icon": "HelpCircle",
+        "correctCategory": "school_care",
+        "feedback": "¡Correcto! Aplicar compresa fría para aliviar el prurito y observar en enfermería. Se vigila que no aparezca reacción anafiláctica."
+      },
+      {
+        "id": "c7",
+        "situation": "Un estudiante de primaria salta un muro y sufre una fractura con extremo óseo perforando la piel y sangrado activo.",
+        "icon": "AlertTriangle",
+        "correctCategory": "emergency_123",
+        "feedback": "¡Urgencia médica obligatoria! Es una fractura abierta. Cubrir con gasa estéril sin presionar el hueso, mantener ayuno y llamar al 123 de inmediato."
+      },
+      {
+        "id": "c8",
+        "situation": "Un profesor de 52 años manifiesta dolor opresivo 'como una plancha pesada' en el pecho, palidez y sudoración fría.",
+        "icon": "AlertTriangle",
+        "correctCategory": "emergency_123",
+        "feedback": "¡Actuación salvavidas! Sospecha de síndrome coronario agudo. Posición semisentada, calmarlo, activar Línea 123 con prioridad y tener a mano el DEA."
+      }
+    ]
+  }
+}

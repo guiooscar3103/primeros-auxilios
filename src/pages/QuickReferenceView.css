@@ -1,0 +1,108 @@
+.quick-reference-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 0 3rem;
+}
+
+.quick-reference-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.quick-reference-header__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quick-reference-title {
+  font-family: var(--font-family-heading);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--neutral-900);
+  margin: 0;
+}
+
+.quick-reference-subtitle {
+  font-size: 1rem;
+  color: var(--neutral-600);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.urgent-call-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background-color: var(--status-danger-light);
+}
+
+.urgent-call-box__icon {
+  background-color: var(--status-danger);
+  color: #ffffff;
+  padding: 0.6rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.urgent-call-box__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.urgent-call-box__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--status-danger-dark);
+}
+
+.urgent-call-box__text {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--neutral-700);
+  line-height: 1.4;
+}
+
+.quick-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.quick-reference-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.clinical-notice {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--neutral-100);
+  border-left: 4px solid var(--accent-amber);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--neutral-700);
+}
+
+.notice-icon {
+  color: var(--accent-amber);
+  flex-shrink: 0;
+}
+
+.footer-actions {
+  display: flex;
+  justify-content: flex-start;
+}

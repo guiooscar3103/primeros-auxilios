@@ -1,0 +1,183 @@
+/* Layout principal */
+.hero-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-main-content {
+  flex: 1;
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+/* Encabezados de sección */
+.screen-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.screen-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.85rem;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.screen-title {
+  font-size: 2.4rem;
+  color: var(--primary-700);
+  letter-spacing: -0.5px;
+}
+
+.screen-lead {
+  font-size: 1.15rem;
+  color: var(--neutral-600);
+}
+
+/* Caja de previsualización de lección */
+.lesson-preview-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.preview-star-icon {
+  color: var(--accent-amber);
+  animation: heroFloat 3s ease-in-out infinite;
+}
+
+.lesson-preview-box h2 {
+  font-size: 1.6rem;
+  color: var(--neutral-900);
+}
+
+.lesson-preview-box p {
+  font-size: 1.1rem;
+  color: var(--neutral-700);
+  line-height: 1.6;
+}
+
+.preview-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Resumen de Logros */
+.achievements-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.achievement-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.stat-star-icon {
+  color: var(--accent-amber);
+  fill: var(--accent-amber);
+}
+
+.stat-trophy-icon {
+  color: var(--status-success);
+}
+
+.stat-number {
+  font-family: var(--font-family-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--neutral-900);
+  line-height: 1;
+}
+
+.stat-medal-icon {
+  color: var(--primary-600);
+}
+
+.badges-unlocked-card {
+  width: 100%;
+  max-width: 700px;
+  margin: 1.5rem auto 0;
+  padding: 1.75rem;
+}
+
+.badges-section-title {
+  font-size: 1.4rem;
+  color: var(--neutral-900);
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.badges-list-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+.badge-item-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  color: #92400e;
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid #fcd34d;
+  box-shadow: var(--shadow-sm);
+}
+
+.badge-item-icon {
+  color: var(--accent-amber);
+}
+
+.achievements-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Pie de página */
+.hero-footer {
+  background-color: #ffffff;
+  border-top: 1px solid var(--neutral-200);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--neutral-600);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .screen-title {
+    font-size: 1.8rem;
+  }
+  .preview-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+}

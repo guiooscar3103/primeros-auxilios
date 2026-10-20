@@ -1,0 +1,176 @@
+{
+  "atragantamiento-ovace": [
+    {
+      "id": "q_o_1",
+      "question": "¿Cuál es la conducta recomendada ante un estudiante que tose de manera fuerte y ruidosa tras atragantarse?",
+      "icon": "AlertTriangle",
+      "options": [
+        {
+          "id": "opt-a",
+          "letter": "A",
+          "text": "Estimularlo a continuar tosiendo con fuerza sin golpearle la espalda ni darle líquidos.",
+          "isCorrect": true,
+          "feedback": "¡Correcto! En una obstrucción leve con tos efectiva, la tos espontánea es el mecanismo más potente y seguro. Intervenir puede desalojar el objeto y causar obstrucción total."
+        },
+        {
+          "id": "opt-b",
+          "letter": "B",
+          "text": "Darle 5 palmadas interescapulares y ofrecerle un vaso de agua con azúcar.",
+          "isCorrect": false,
+          "feedback": "Incorrecto: Golpear la espalda o dar agua con tos efectiva puede provocar broncoaspiración o impactar más el cuerpo extraño."
+        },
+        {
+          "id": "opt-c",
+          "letter": "C",
+          "text": "Introducir los dedos en la boca a ciegas para ver si se alcanza a palpar el objeto.",
+          "isCorrect": false,
+          "feedback": "Peligroso: El barrido a ciegas está estrictamente prohibido porque puede empujar el objeto hacia la laringe."
+        }
+      ]
+    },
+    {
+      "id": "q_o_2",
+      "question": "¿Dónde se debe posicionar el puño para realizar la maniobra de Heimlich en un escolar?",
+      "icon": "AlertTriangle",
+      "options": [
+        {
+          "id": "opt-a",
+          "letter": "A",
+          "text": "Dos dedos por encima del ombligo, en la línea media del abdomen, bien por debajo del apéndice xifoides.",
+          "isCorrect": true,
+          "feedback": "¡Exacto! Esta ubicación sobre el epigastrio comprime el diafragma hacia arriba sin fracturar el xifoides ni lesionar el hígado o bazo."
+        },
+        {
+          "id": "opt-b",
+          "letter": "B",
+          "text": "Directamente sobre el esternón en el centro del pecho.",
+          "isCorrect": false,
+          "feedback": "Incorrecto: Las compresiones en el centro del esternón se usan en lactantes o en víctimas inconscientes (RCP), no en la maniobra de Heimlich para escolares conscientes."
+        },
+        {
+          "id": "opt-c",
+          "letter": "C",
+          "text": "En el costado derecho sobre las costillas flotantes.",
+          "isCorrect": false,
+          "feedback": "Incorrecto: Puede causar fracturas costales o laceración hepática."
+        }
+      ]
+    },
+    {
+      "id": "q_o_3",
+      "question": "Si el estudiante con asfixia pierde el conocimiento durante las maniobras, ¿cuál es la acción prioritaria?",
+      "icon": "AlertTriangle",
+      "options": [
+        {
+          "id": "opt-a",
+          "letter": "A",
+          "text": "Tenderlo boca arriba en el suelo, pedir llamar al 123 y comenzar 30 compresiones torácicas de RCP.",
+          "isCorrect": true,
+          "feedback": "¡Conducta salvavidas! La pérdida de conciencia exige inicio inmediato de soporte vital básico (AHA) para mantener la oxigenación miocárdica y cerebral."
+        },
+        {
+          "id": "opt-b",
+          "letter": "B",
+          "text": "Cargarlo boca abajo y sacudirlo fuertemente por los pies.",
+          "isCorrect": false,
+          "feedback": "Peligroso: Sacudir a una víctima inconsciente retrasa la reanimación y causa traumatismo craneocervical."
+        },
+        {
+          "id": "opt-c",
+          "letter": "C",
+          "text": "Esperar sentado a que llegue la ambulancia sin realizar ninguna maniobra.",
+          "isCorrect": false,
+          "feedback": "Mortal: Sin oxígeno, el daño cerebral irreversible inicia tras 4 a 6 minutos."
+        }
+      ]
+    }
+  ],
+  "perdida-dientes-avulsion": [
+    {
+      "id": "q_d_1",
+      "question": "¿Por qué parte anatómica se debe sujetar un diente definitivo que ha caído al suelo por un golpe?",
+      "icon": "Smile",
+      "options": [
+        {
+          "id": "opt-a",
+          "letter": "A",
+          "text": "Exclusivamente por la corona (la parte blanca masticatoria), sin tocar la raíz.",
+          "isCorrect": true,
+          "feedback": "¡Regla de oro de la IADT! Tocar la raíz destruye las células del ligamento periodontal e impide que el diente pueda reinsertarse al hueso alveolar."
+        },
+        {
+          "id": "opt-b",
+          "letter": "B",
+          "text": "Por la punta de la raíz para no ensuciar la corona visible.",
+          "isCorrect": false,
+          "feedback": "Grave error: Tocar la raíz raspa y mata el tejido celular biológicamente activo."
+        },
+        {
+          "id": "opt-c",
+          "letter": "C",
+          "text": "Envolviéndolo con una pinza metálica apretada.",
+          "isCorrect": false,
+          "feedback": "Incorrecto: Puede fracturar el diente y lesiona el ligamento."
+        }
+      ]
+    },
+    {
+      "id": "q_d_2",
+      "question": "¿En cuál de los siguientes medios NUNCA se debe transportar un diente permanente avulsionado?",
+      "icon": "Smile",
+      "options": [
+        {
+          "id": "opt-a",
+          "letter": "A",
+          "text": "Envuelto en una servilleta de papel o toalla seca en el bolsillo.",
+          "isCorrect": true,
+          "feedback": "¡Exacto! El medio seco deshidrata y destruye el ligamento periodontal en menos de 15 a 20 minutos, haciendo imposible el reimplante exitoso."
+        },
+        {
+          "id": "opt-b",
+          "letter": "B",
+          "text": "En un recipiente con leche entera fría.",
+          "isCorrect": false,
+          "feedback": "La leche fría es uno de los medios recomendados oficialmente por su pH y osmolaridad fisiológica."
+        },
+        {
+          "id": "opt-c",
+          "letter": "C",
+          "text": "En solución salina o en la propia saliva del estudiante.",
+          "isCorrect": false,
+          "feedback": "Tanto el suero fisiológico como la saliva son medios húmedos adecuados para el transporte urgente."
+        }
+      ]
+    }
+  ],
+  "paro-cardiaco-infarto": [
+    {
+      "id": "q_r_1",
+      "question": "¿Cuál es la frecuencia y profundidad de compresión torácica recomendada en el soporte vital básico?",
+      "icon": "Activity",
+      "options": [
+        {
+          "id": "opt-a",
+          "letter": "A",
+          "text": "Frecuencia de 100 a 120 compresiones por minuto y al menos 5 cm de profundidad en adultos.",
+          "isCorrect": true,
+          "feedback": "¡Estándar clínico oficial AHA/ERC! Este ritmo y profundidad garantizan el flujo de perfusión cerebral y coronaria."
+        },
+        {
+          "id": "opt-b",
+          "letter": "B",
+          "text": "Compresiones suaves de 2 cm a un ritmo de 40 por minuto.",
+          "isCorrect": false,
+          "feedback": "Ineficaz: No genera presión intratorácica suficiente para irrigar los órganos vitales."
+        },
+        {
+          "id": "opt-c",
+          "letter": "C",
+          "text": "Compresiones rápidas de más de 200 por minuto sin pausas.",
+          "isCorrect": false,
+          "feedback": "Incorrecto: No permite la reexpansión cardíaca y produce fatiga inmediata del rescatista."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+.achievements-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 880px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.achievements-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.achievements-title {
+  font-size: 2.6rem;
+  color: var(--primary-700);
+}
+
+.achievements-subtitle {
+  font-size: 1.15rem;
+  color: var(--neutral-600);
+  max-width: 640px;
+}
+
+/* Tarjetas de Estadísticas */
+.stats-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 1.75rem 1rem;
+}
+
+.stat-icon-gold {
+  color: var(--accent-amber);
+  fill: var(--accent-amber);
+}
+
+.stat-icon-green {
+  color: var(--status-success);
+}
+
+.stat-icon-blue {
+  color: var(--primary-600);
+}
+
+.stat-big-number {
+  font-family: var(--font-family-heading);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--neutral-900);
+  line-height: 1;
+}
+
+.stat-label-text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--neutral-600);
+}
+
+/* Sección de Medallas */
+.medals-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.section-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.section-star-icon {
+  color: var(--accent-amber);
+}
+
+.medals-heading {
+  font-size: 1.6rem;
+  color: var(--neutral-900);
+}
+
+.medals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 1.25rem;
+}
+
+.medal-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  transition: transform var(--transition-fast);
+}
+
+.medal-card--unlocked {
+  background: linear-gradient(135deg, #ffffff 0%, #fffbeb 100%);
+  border-color: #fde68a;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.12);
+}
+
+.medal-card--locked {
+  background-color: var(--neutral-50);
+  opacity: 0.75;
+}
+
+.medal-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.medal-icon-wrap.unlocked {
+  background: linear-gradient(135deg, #fbbf24, #d97706);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+}
+
+.medal-icon-wrap.locked {
+  background-color: var(--neutral-200);
+  color: var(--neutral-500);
+}
+
+.medal-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.medal-header-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.medal-title {
+  font-size: 1.15rem;
+  color: var(--neutral-900);
+}
+
+.medal-description {
+  font-size: 0.9rem;
+  color: var(--neutral-600);
+  line-height: 1.35;
+}
+
+/* Tarjeta de Privacidad */
+.privacy-card {
+  background-color: var(--neutral-50);
+  border: 1.5px solid var(--neutral-200);
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.privacy-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--primary-700);
+}
+
+.privacy-icon {
+  color: var(--primary-600);
+}
+
+.privacy-card__text {
+  font-size: 0.95rem;
+  color: var(--neutral-700);
+  line-height: 1.5;
+}
+
+/* Zona de Peligro / Reinicio */
+.danger-zone-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-reset-request {
+  color: var(--neutral-500);
+}
+
+.btn-reset-request:hover {
+  color: var(--status-danger);
+  background-color: var(--status-danger-light);
+}
+
+.confirm-reset-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background-color: #fff7ed;
+  max-width: 500px;
+}
+
+.confirm-info-icon {
+  color: #ea580c;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.confirm-reset-box strong {
+  display: block;
+  font-size: 1.05rem;
+  color: #9a3412;
+  margin-bottom: 0.25rem;
+}
+
+.confirm-reset-box p {
+  font-size: 0.95rem;
+  color: #7c2d12;
+  margin-bottom: 0.85rem;
+}
+
+.confirm-buttons-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.achievements-footer-nav {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .medal-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .medal-header-line {
+    flex-direction: column;
+  }
+}
