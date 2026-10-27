@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   Lock,
   ArrowRight,
+  ArrowLeft,
   Sparkles,
   Compass,
   Gamepad2,
@@ -22,6 +23,8 @@ import Button from '../components/Button'
 import Badge from '../components/Badge'
 import ProgressBar from '../components/ProgressBar'
 import missionsData from '../data/missions.json'
+import { SCHOOL_CASES } from '../data/schoolCases'
+import { getAssetUrl } from '../utils/constants'
 import './MissionMap.css'
 
 // Mapa de iconos dinámicos clínicos
@@ -48,6 +51,20 @@ export default function MissionMap({
 
   return (
     <div className="mission-map-page animate-fade-in">
+      {/* Botón de Retorno Limpio */}
+      {onBackToHome && (
+        <div className="map-top-bar">
+          <Button
+            variant="ghost"
+            size="sm"
+            iconLeft={<ArrowLeft size={16} />}
+            onClick={onBackToHome}
+          >
+            Volver al Inicio
+          </Button>
+        </div>
+      )}
+
       {/* Encabezado del Mapa */}
       <header className="map-header">
         <div className="map-header__meta">
@@ -86,6 +103,7 @@ export default function MissionMap({
         {missionsData.map((mission) => {
           const isCompleted = completedMissionIds.includes(mission.id)
           const IconComponent = iconMap[mission.icon] || ShieldCheck
+          const matchedCase = SCHOOL_CASES.find((c) => c.id === mission.id)
 
           return (
             <Card
@@ -94,10 +112,24 @@ export default function MissionMap({
               borderVariant={isCompleted ? 'success' : mission.color}
             >
               <div className="mission-card__inner">
-                {/* Columna Izquierda: Número e Icono */}
+                {/* Columna Izquierda: Fotografía Miniatura y Número */}
                 <div className="mission-card__badge-col">
-                  <div className={`mission-avatar mission-avatar--${mission.color}`}>
-                    <IconComponent size={32} />
+                  <div className="mission-thumb-wrap">
+                    {matchedCase?.images?.scene ? (
+                      <img
+                        src={getAssetUrl(matchedCase.images.scene)}
+                        alt={mission.title}
+                        className="mission-thumb-img"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className={`mission-avatar mission-avatar--${mission.color}`}>
+                        <IconComponent size={32} />
+                      </div>
+                    )}
+                    <div className={`mission-icon-chip mission-icon-chip--${mission.color}`}>
+                      <IconComponent size={14} />
+                    </div>
                   </div>
                   <span className="mission-number">Módulo {mission.number}</span>
                 </div>

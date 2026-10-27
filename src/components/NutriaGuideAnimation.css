@@ -1,17 +1,22 @@
+/* ==========================================================================
+   DEMOSTRACIONES VISUALES INTERACTIVAS: GUÍA DE LA NUTRIA MÉDICA DOC
+   ========================================================================== */
+
 .nutria-guide-card {
-  padding: 1.25rem;
+  padding: 1.5rem;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
+  gap: 1.25rem;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  border: 1.5px solid var(--neutral-200);
 }
 
 .nutria-guide-card__header {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.75rem;
 }
 
 .header-meta {
@@ -24,125 +29,1325 @@
 
 .mentor-label {
   font-size: 0.82rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--primary-700);
 }
 
-.scene-step-title {
-  font-family: var(--font-family-heading);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--neutral-900);
-  margin: 0.2rem 0 0;
-}
-
-.animation-canvas {
-  width: 100%;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  border: 1px solid var(--primary-200);
-  background-color: #f0f9ff;
+/* Selector de Pestañas: Secuencia vs Infografía vs Video */
+.guide-view-tabs {
   display: flex;
-  justify-content: center;
+  gap: 0.4rem;
+  background-color: var(--neutral-100);
+  padding: 0.3rem;
+  border-radius: var(--radius-full);
+  align-self: flex-start;
+  flex-wrap: wrap;
+}
+
+.guide-tab-btn {
+  display: inline-flex;
   align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--neutral-600);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
-.nutria-svg-stage {
+.guide-tab-btn:hover {
+  color: var(--primary-800);
+}
+
+.guide-tab-btn--active {
+  background-color: #ffffff;
+  color: var(--primary-700);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================================================================
+   VISTA 1: SECUENCIA DEMOSTRATIVA PASO A PASO
+   ========================================================================== */
+.demo-interactive-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Barra de Chips de Pasos */
+.demo-step-chips-bar {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  scrollbar-width: none;
+}
+
+.demo-step-chips-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.demo-step-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  background-color: var(--neutral-50);
+  border: 1.5px solid var(--neutral-200);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--neutral-700);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.demo-step-chip:hover {
+  border-color: var(--primary-400);
+  background-color: var(--primary-50);
+}
+
+.demo-step-chip--active {
+  background-color: var(--primary-50);
+  border-color: var(--primary-600);
+  color: var(--primary-800);
+}
+
+.step-chip-index {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--neutral-300);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.demo-step-chip--active .step-chip-index {
+  background-color: var(--primary-600);
+}
+
+/* Contenedor del Paso Activo */
+.demo-step-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.demo-step-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.demo-step-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary-700);
+}
+
+.demo-step-main-title {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--neutral-900);
+}
+
+/* Lienzo Visual Central */
+.demo-visual-canvas {
+  background-color: #f8fafc;
+  border: 1.5px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  overflow: hidden;
+}
+
+.visual-stage-card {
   width: 100%;
-  max-height: 240px;
-  display: block;
 }
 
-/* Micro-animaciones CSS vectoriales */
-.is-animating .nutria-mentor {
-  animation: nutriaBreathe 3s ease-in-out infinite;
+/* 1. Tos vs Asfixia */
+.compare-split-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
-.is-animating .mentor-arms-heimlich {
-  animation: heimlichPump 1.4s ease-in-out infinite;
-  transform-origin: 60px 100px;
-}
-
-.is-animating .student-hands-neck {
-  animation: distressJiggle 1s ease-in-out infinite;
-}
-
-@keyframes nutriaBreathe {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-3px);
+@media (min-width: 640px) {
+  .compare-split-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-@keyframes heimlichPump {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.04) translateY(-2px);
+.compare-col {
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.compare-col--safe {
+  background-color: #f0fdf4;
+  border: 1.5px solid rgba(16, 185, 129, 0.3);
+}
+
+.compare-col--danger {
+  background-color: #fef2f2;
+  border: 1.5px solid rgba(239, 68, 68, 0.3);
+}
+
+.compare-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.compare-badge {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.compare-badge--safe {
+  color: var(--status-success-dark);
+}
+
+.compare-badge--danger {
+  color: var(--status-danger-dark);
+}
+
+.person-avatar-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.person-avatar-circle--safe {
+  background-color: #d1fae5;
+}
+
+.person-avatar-circle--danger {
+  background-color: #fee2e2;
+}
+
+.compare-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.86rem;
+  color: var(--neutral-800);
+}
+
+.compare-action-pill {
+  font-size: 0.82rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius-sm);
+  margin-top: auto;
+}
+
+.compare-action-pill--safe {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.compare-action-pill--danger {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* 2. Biomecánica Heimlich y Apoyo */
+.biomechanic-box {
+  background-color: #ffffff;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.posture-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--primary-100);
+  color: var(--primary-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.biomechanic-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--neutral-900);
+}
+
+.posture-steps-horizontal {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .posture-steps-horizontal {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@keyframes distressJiggle {
-  0%, 100% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(-2deg);
-  }
-  75% {
-    transform: rotate(2deg);
+.posture-step-item {
+  background-color: var(--neutral-50);
+  padding: 0.85rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+}
+
+.posture-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--primary-600);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+/* 3. Vector Heimlich en J */
+.heimlich-interactive-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+}
+
+.heimlich-vector-display {
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  border: 2px dashed var(--primary-300);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.vector-torso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.vector-torso--active {
+  transform: scale(1.05) translateY(-5px);
+}
+
+.anatomical-ribs {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--neutral-400);
+  text-transform: uppercase;
+}
+
+.anatomical-target {
+  background-color: #fef2f2;
+  border: 2px solid var(--status-danger);
+  color: var(--status-danger-dark);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+  font-size: 0.88rem;
+}
+
+.vector-arrow-j {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--status-danger);
+  font-weight: 800;
+  font-size: 0.95rem;
+  transition: transform 0.3s ease;
+}
+
+.vector-arrow-j--push {
+  transform: scale(1.2);
+  color: #dc2626;
+}
+
+.arrow-indicator {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.anatomical-navel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--neutral-400);
+  text-transform: uppercase;
+}
+
+.vector-helper-text {
+  font-size: 0.82rem;
+  color: var(--neutral-500);
+}
+
+/* 4. Diente: Corona vs Raíz */
+.tooth-anatomy-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .tooth-anatomy-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-.nutria-step-content {
+.tooth-part-box {
+  padding: 1rem;
+  border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
 }
 
-.scene-instruction {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--neutral-800);
-  line-height: 1.5;
+.tooth-part-box--safe {
+  background-color: #f0fdf4;
+  border: 1.5px solid rgba(16, 185, 129, 0.3);
 }
 
-.nutria-tip-pill {
+.tooth-part-box--danger {
+  background-color: #fef2f2;
+  border: 1.5px solid rgba(239, 68, 68, 0.3);
+}
+
+.tooth-zone-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.tooth-zone-tag--safe {
+  color: var(--status-success-dark);
+}
+
+.tooth-zone-tag--danger {
+  color: var(--status-danger-dark);
+}
+
+.tooth-illustration-crown {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  background-color: var(--primary-50);
-  border-left: 3px solid var(--primary-600);
-  border-radius: var(--radius-sm);
-  font-size: 0.85rem;
-  color: var(--primary-900);
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--neutral-900);
 }
 
-.tip-icon {
-  color: var(--primary-600);
+.tooth-illustration-root {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.root-danger-zone {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--status-danger);
+}
+
+.tooth-desc {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--neutral-700);
+  line-height: 1.45;
+}
+
+/* 5. Leche vs Saliva */
+.transport-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .transport-compare-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.transport-item {
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.transport-item--ideal {
+  background-color: #f0f9ff;
+  border: 1.5px solid rgba(2, 132, 199, 0.3);
+}
+
+.transport-item--hazard {
+  background-color: #fff1f2;
+  border: 1.5px solid rgba(244, 63, 94, 0.3);
+}
+
+.transport-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--neutral-900);
+}
+
+.transport-lead {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary-700);
+}
+
+.transport-item--hazard .transport-lead {
+  color: var(--status-danger);
+}
+
+.transport-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--neutral-700);
+}
+
+/* 6. Gasa y Tiempo */
+.timer-priority-box {
+  background-color: #ffffff;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .timer-priority-box {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.clock-highlight-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #fef3c7;
+  color: #b45309;
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
   flex-shrink: 0;
 }
 
-.nutria-controls-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  border-top: 1px solid var(--neutral-200);
-  padding-top: 0.75rem;
+.clock-metric {
+  font-size: 1.15rem;
+  font-weight: 900;
 }
 
-.step-dots {
+.timer-priority-content {
   display: flex;
+  flex-direction: column;
   gap: 0.4rem;
 }
 
-.dot-btn {
+.timer-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--neutral-900);
+}
+
+.timer-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--neutral-600);
+  line-height: 1.45;
+}
+
+.timer-gasa-note {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--status-success-dark);
+  background-color: #f0fdf4;
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius-sm);
+  margin-top: 0.5rem;
+}
+
+/* 7. Infarto vs Paro */
+.triage-dilemma-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .triage-dilemma-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.triage-box {
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.triage-box--infarto {
+  background-color: #f8fafc;
+  border: 1.5px solid var(--neutral-300);
+}
+
+.triage-box--paro {
+  background-color: #fef2f2;
+  border: 1.5px solid rgba(239, 68, 68, 0.4);
+}
+
+.triage-type-tag {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--neutral-600);
+}
+
+.triage-type-tag--paro {
+  color: var(--status-danger);
+}
+
+.triage-condition-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--neutral-900);
+}
+
+.triage-signs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.86rem;
+  color: var(--neutral-700);
+}
+
+.triage-conduct-pill {
+  font-size: 0.82rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: var(--radius-sm);
+  margin-top: auto;
+}
+
+.triage-conduct-pill--infarto {
+  background-color: var(--primary-100);
+  color: var(--primary-800);
+}
+
+.triage-conduct-pill--paro {
+  background-color: #fee2e2;
+  color: #991b1b;
+  font-weight: 800;
+}
+
+/* 8. Metrónomo RCP 110 CPM */
+.rcp-trainer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.rcp-posture-guide {
+  background-color: #ffffff;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.posture-pill {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--primary-700);
+}
+
+.posture-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  color: var(--neutral-800);
+  font-weight: 600;
+}
+
+@media (min-width: 600px) {
+  .posture-checklist {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.rcp-metronome-box {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.metronome-pulse-ring {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  transition: all 0.2s ease;
+}
+
+.metronome-pulse-ring--active {
+  border-color: #ef4444;
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.4);
+  animation: rcpBeat 0.545s infinite ease-in-out;
+}
+
+.rcp-heart-icon {
+  color: #ef4444;
+}
+
+.rcp-heart-icon--beating {
+  fill: #ef4444;
+  animation: heartPulse 0.545s infinite ease-in-out;
+}
+
+@keyframes rcpBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes heartPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.metronome-tempo-label {
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}
+
+.metronome-cycle-count {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+.metronome-action-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.metronome-song-tip {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+/* 9. Parches DEA */
+.dea-placement-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dea-torso-map {
+  background-color: #ffffff;
+  border: 1.5px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+@media (min-width: 600px) {
+  .dea-torso-map {
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+}
+
+.pad-location {
+  background-color: #f8fafc;
+  border: 1.5px solid var(--primary-300);
+  padding: 0.85rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+}
+
+.pad-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--primary-700);
+}
+
+.dea-center-heart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 1.75rem;
+}
+
+.shock-vector {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #b45309;
+  text-align: center;
+}
+
+.dea-safety-warning-strip {
+  background-color: #fee2e2;
+  border: 1.5px solid var(--status-danger);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.warning-strip-icon {
+  color: var(--status-danger);
+  flex-shrink: 0;
+}
+
+.warning-strip-text {
+  font-size: 0.86rem;
+  color: #7f1d1d;
+}
+
+.warning-strip-text p {
+  margin: 0.2rem 0 0;
+}
+
+/* 10. Preguntas de Conciencia */
+.neuro-questions-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.neuro-tag {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--primary-700);
+}
+
+.neuro-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--neutral-900);
+}
+
+.questions-interactive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 600px) {
+  .questions-interactive-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.question-card {
+  background-color: #ffffff;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+}
+
+.q-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--primary-700);
+  text-transform: uppercase;
+}
+
+.q-target {
+  font-size: 0.78rem;
+  color: var(--neutral-500);
+}
+
+/* 11. Frío Seguro vs Monedas */
+.frio-remedy-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .frio-remedy-split {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.remedy-box {
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.remedy-box--safe {
+  background-color: #f0fdf4;
+  border: 1.5px solid rgba(16, 185, 129, 0.3);
+}
+
+.remedy-box--danger {
+  background-color: #fef2f2;
+  border: 1.5px solid rgba(239, 68, 68, 0.3);
+}
+
+.remedy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.remedy-badge--safe {
+  color: var(--status-success-dark);
+}
+
+.remedy-badge--danger {
+  color: var(--status-danger-dark);
+}
+
+.remedy-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--neutral-900);
+}
+
+.remedy-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.35rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--neutral-700);
+}
+
+/* 12. Banderas Rojas */
+.red-flags-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.flags-header-alert {
+  background-color: #fee2e2;
+  border-left: 4px solid var(--status-danger);
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #7f1d1d;
+}
+
+.flags-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.flags-sub {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+}
+
+.flags-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 600px) {
+  .flags-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.flag-card {
+  background-color: #ffffff;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.flag-icon {
+  font-size: 1.75rem;
+}
+
+.flag-card p {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--neutral-600);
+}
+
+/* 13. Fracturas: No traccionar */
+.golden-rule-banner-box {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 2px solid #f59e0b;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.golden-rule-icon {
+  color: #d97706;
+  flex-shrink: 0;
+}
+
+.golden-rule-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.golden-rule-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #b45309;
+}
+
+.golden-rule-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #78350f;
+}
+
+.golden-rule-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #92400e;
+  line-height: 1.5;
+}
+
+/* 14. Férula Acolchada */
+.splint-guide-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .splint-guide-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.splint-material-box,
+.splint-technique-box {
+  background-color: #ffffff;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.splint-tag {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--primary-700);
+}
+
+.splint-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.35rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--neutral-700);
+}
+
+.splint-technique-box p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--neutral-700);
+  line-height: 1.45;
+}
+
+.splint-circulation-check {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--status-success-dark);
+  background-color: #f0fdf4;
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius-sm);
+  margin-top: auto;
+}
+
+/* 15. Protocolo RICE */
+.rice-protocol-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 600px) {
+  .rice-protocol-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.rice-card {
+  background-color: #ffffff;
+  border: 1.5px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+}
+
+.rice-letter {
+  font-family: var(--font-family-heading);
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.rice-card--r .rice-letter {
+  color: #0284c7;
+}
+
+.rice-card--i .rice-letter {
+  color: #06b6d4;
+}
+
+.rice-card--c .rice-letter {
+  color: #d97706;
+}
+
+.rice-card--e .rice-letter {
+  color: #16a34a;
+}
+
+.rice-card p {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--neutral-600);
+}
+
+/* ==========================================================================
+   EXPLICACIÓN PEDAGÓGICA (3 PREGUNTAS CLAVE)
+   ========================================================================== */
+.demo-pedagogy-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+@media (min-width: 768px) {
+  .demo-pedagogy-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pedagogy-box {
+  background-color: #ffffff;
+  border: 1.5px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pedagogy-box--situation {
+  border-top: 3px solid var(--neutral-400);
+}
+
+.pedagogy-box--action {
+  border-top: 3px solid var(--primary-600);
+  background-color: #f0f9ff;
+}
+
+.pedagogy-box--caution {
+  border-top: 3px solid var(--status-danger);
+  background-color: #fff5f5;
+}
+
+.pedagogy-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--neutral-600);
+}
+
+.pedagogy-label--action {
+  color: var(--primary-700);
+}
+
+.pedagogy-label--caution {
+  color: var(--status-danger);
+}
+
+.pedagogy-text {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--neutral-800);
+  line-height: 1.45;
+}
+
+/* Píldora de Consejo Doc */
+.doc-advice-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1rem;
+  background-color: #f0fdf4;
+  border-left: 4px solid var(--status-success);
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  color: #065f46;
+}
+
+.advice-icon {
+  color: var(--status-success);
+  flex-shrink: 0;
+}
+
+/* Barra de Controles de Avance */
+.demo-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-top: 1px solid var(--neutral-200);
+  padding-top: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.demo-step-dots {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.demo-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -153,13 +1358,115 @@
   transition: all var(--transition-fast);
 }
 
-.dot-btn--active {
+.demo-dot--active {
   background-color: var(--primary-600);
   width: 22px;
   border-radius: var(--radius-full);
 }
 
-.nav-actions {
+/* ==========================================================================
+   VISTA 2: LÁMINA INFOGRÁFICA OFICIAL
+   ========================================================================== */
+.nutria-infographic-view {
   display: flex;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.nutria-infographic-img-wrap {
+  width: 100%;
+  max-height: 480px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8fafc;
+  border: 1px solid var(--neutral-200);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.nutria-infographic-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  display: block;
+}
+
+.nutria-infographic-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.infographic-footer-title {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--neutral-900);
+}
+
+/* ==========================================================================
+   VISTA 3: VIDEO ANIMADO PROTOCOLO P.A.S.
+   ========================================================================== */
+.demo-video-view {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.demo-video-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.demo-video-title {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--neutral-900);
+}
+
+.demo-video-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--neutral-600);
+  line-height: 1.5;
+}
+
+.demo-video-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: #000000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 600px) {
+  .nutria-guide-card {
+    padding: 1rem;
+  }
+  .guide-tab-btn {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.78rem;
+  }
+  .demo-step-chip {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.78rem;
+  }
 }

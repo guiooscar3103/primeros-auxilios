@@ -3,7 +3,7 @@ import { AlertCircle, PhoneCall, CheckCircle2, XCircle, ArrowRight } from 'lucid
 import Card from './Card'
 import Badge from './Badge'
 import Button from './Button'
-import { EMERGENCY_NUMBER } from '../utils/constants'
+import { EMERGENCY_NUMBER, getAssetUrl } from '../utils/constants'
 import './QuickActionCard.css'
 
 export default function QuickActionCard({
@@ -11,26 +11,41 @@ export default function QuickActionCard({
   onOpenFullCase,
   compact = false,
 }) {
-  const { consultaRapida, title, category } = caseData
+  const { consultaRapida, title, category, images } = caseData
 
   if (!consultaRapida) return null
 
   return (
     <Card className={`quick-action-card ${compact ? 'quick-action-card--compact' : ''}`} borderVariant="danger">
-      <div className="quick-action-card__header">
-        <div className="quick-action-card__tags">
-          <Badge variant="danger" size="sm" icon={<AlertCircle size={14} />}>
-            Consulta de Urgencia
-          </Badge>
-          <Badge variant="neutral" size="sm">
-            {category}
-          </Badge>
+      {/* Encabezado con Imagen Visual en Miniatura */}
+      <div className="quick-action-card__top">
+        {images?.scene && (
+          <div className="quick-action-card__thumb-wrap">
+            <img
+              src={getAssetUrl(images.scene)}
+              alt={images.sceneAlt || title}
+              className="quick-action-card__thumb"
+              loading="lazy"
+            />
+          </div>
+        )}
+
+        <div className="quick-action-card__header">
+          <div className="quick-action-card__tags">
+            <Badge variant="danger" size="sm" icon={<AlertCircle size={14} />}>
+              Consulta de Urgencia
+            </Badge>
+            <Badge variant="neutral" size="sm">
+              {category}
+            </Badge>
+          </div>
+          <h3 className="quick-action-card__title">{title}</h3>
         </div>
-        <h3 className="quick-action-card__title">{title}</h3>
-        <p className="quick-action-card__question">
-          <strong>Pregunta clave:</strong> {consultaRapida.preguntaDiagnostica}
-        </p>
       </div>
+
+      <p className="quick-action-card__question">
+        <strong>Pregunta clave:</strong> {consultaRapida.preguntaDiagnostica}
+      </p>
 
       <div className="quick-action-card__decision-grid">
         {/* Camino Leve (Verde) */}
@@ -89,7 +104,7 @@ export default function QuickActionCard({
             onClick={onOpenFullCase}
             iconRight={<ArrowRight size={16} />}
           >
-            Ver Módulo de Capacitación Completo
+            Ver Módulo y Demostración Visual Completa
           </Button>
         </div>
       )}
@@ -98,28 +113,7 @@ export default function QuickActionCard({
 }
 
 QuickActionCard.propTypes = {
-  caseData: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
-    consultaRapida: PropTypes.shape({
-      tituloEmergencia: PropTypes.string,
-      preguntaDiagnostica: PropTypes.string.isRequired,
-      caminoLeve: PropTypes.shape({
-        condicion: PropTypes.string.isRequired,
-        accion: PropTypes.string.isRequired,
-      }).isRequired,
-      caminoGrave: PropTypes.shape({
-        condicion: PropTypes.string.isRequired,
-        accion: PropTypes.string.isRequired,
-      }).isRequired,
-      paroOInconsciencia: PropTypes.shape({
-        condicion: PropTypes.string.isRequired,
-        accion: PropTypes.string.isRequired,
-      }),
-      prohibiciones: PropTypes.arrayOf(PropTypes.string),
-    }).isRequired,
-  }).isRequired,
+  caseData: PropTypes.object.isRequired,
   onOpenFullCase: PropTypes.func,
   compact: PropTypes.bool,
 }

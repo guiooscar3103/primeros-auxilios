@@ -17,3 +17,12 @@ export const SCREENS = {
   SOURCES: 'sources',
 }
 
+export const getAssetUrl = (path) => {
+  if (!path) return ''
+  if (path.startsWith('http')) return path
+  const base = import.meta.env.BASE_URL || '/'
+  const cleanPath = path.replace(/^\//, '')
+  return `${base}${cleanPath}`
+}
+
+

@@ -60,10 +60,10 @@ export const SCHOOL_CASES = [
     lastReviewed: '2025-02-15',
     clinicalDisclaimer: 'Fines pedagógicos. No sustituye la capacitación práctica certificada ni la atención del 123.',
     images: {
-      scene: '/images/casos/atragantamiento-escena.webp',
-      action: '/images/casos/atragantamiento-pasos.webp',
-      sceneAlt: 'Docente acudiendo de inmediato a auxiliar a un estudiante en el comedor escolar con signo universal de asfixia',
-      actionAlt: 'Demostración médica de la maniobra de Heimlich en un niño escolar con puño sobre el ombligo y empuje en J',
+      scene: '/images/situaciones/atragantamiento/escena-comedor-asfixia.jpg',
+      action: '/images/situaciones/atragantamiento/comparativa-tos-vs-asfixia.png',
+      sceneAlt: 'Nutria médica acudiendo de inmediato a auxiliar a Camilo en el comedor escolar con signo universal de asfixia',
+      actionAlt: 'Diferenciación médica entre tos leve efectiva (alentar a toser) y asfixia grave (maniobra de Heimlich inmediata)',
     },
     contextoEscolar: {
       location: 'Comedor escolar durante el descanso del almuerzo',
@@ -166,6 +166,8 @@ export const SCHOOL_CASES = [
           id: 'sim_ovace_1',
           situation: 'Camilo tose con fuerza y ruido tras atorarse con un trozo de fruta. Los niños gritan pidiendo que le des agua o palmadas en la espalda.',
           question: '¿Cuál es la primera decisión docente ante una tos efectiva?',
+          image: '/images/situaciones/atragantamiento/comparativa-tos-vs-asfixia.png',
+          imageCaption: 'Diferenciación clave: Si tose fuerte con ruido, ¡estimula la tos y no golpees su espalda!',
           options: [
             {
               id: 'opt_o1_a',
@@ -185,6 +187,8 @@ export const SCHOOL_CASES = [
           id: 'sim_ovace_2',
           situation: 'La tos se detiene bruscamente. Camilo se lleva ambas manos al cuello con expresión de terror, no emite sonido y sus labios se tornan azulados.',
           question: 'La obstrucción es completa. ¿Cómo procedes de inmediato?',
+          image: '/images/situaciones/atragantamiento/escena-comedor-asfixia.jpg',
+          imageCaption: 'Signo universal de asfixia: Camilo no emite sonido. ¡Posiciónate detrás e inicia compresiones en J!',
           options: [
             {
               id: 'opt_o2_a',
@@ -223,6 +227,8 @@ export const SCHOOL_CASES = [
           id: 'sim_ovace_4',
           situation: 'Tras varias compresiones el objeto no sale. Camilo pierde la fuerza, los ojos se le cierran y colapsa desmayado en tus brazos.',
           question: 'El escolar pierde el conocimiento. ¿Cuál es la secuencia vital inmediata?',
+          image: '/images/situaciones/atragantamiento/simulacion-dilema-suelo-rcp.jpeg',
+          imageCaption: 'Camilo inconsciente: ¡Piso firme, llama al 123 e inicia 30 compresiones torácicas sin barridos a ciegas!',
           options: [
             {
               id: 'opt_o4_a',
@@ -242,6 +248,8 @@ export const SCHOOL_CASES = [
           id: 'sim_ovace_5',
           situation: 'Tras 30 compresiones torácicas abres la vía aérea de Camilo (mentón-frente) para ventilar y observas dentro de su cavidad bucal.',
           question: '¿Qué norma sanitaria rige la inspección bucal durante la RCP por asfixia?',
+          image: '/images/situaciones/atragantamiento/simulacion-dilema-suelo-rcp.jpeg',
+          imageCaption: 'Norma de oro AHA: No barridos a ciegas. Vía aérea abierta y visible.',
           options: [
             {
               id: 'opt_o5_a',
@@ -314,10 +322,10 @@ export const SCHOOL_CASES = [
     lastReviewed: '2025-02-15',
     clinicalDisclaimer: 'Aplicable exclusivamente a DIENTES PERMANENTES. Los dientes de leche nunca deben ser reimplantados.',
     images: {
-      scene: '/images/casos/trauma-dental-escena.webp',
-      action: '/images/casos/trauma-dental-conservacion.webp',
-      sceneAlt: 'Docente de educación física asistiendo con calma a una estudiante tras una caída en la cancha escolar',
-      actionAlt: 'Sujeción correcta del diente definitivo exclusivamente por la corona y preservación en un vaso con leche fresca',
+      scene: '/images/situaciones/traumatismo-dental/escena-cancha-diente-caido.png',
+      action: '/images/situaciones/traumatismo-dental/infografia-medios-transporte.png',
+      sceneAlt: 'Nutria médica asistiendo con calma a Sofía en la cancha escolar tras caída con diente definitivo en el suelo',
+      actionAlt: 'Guía oficial de preservación dental: transporte seguro en leche fría o solución salina y advertencia contra papel seco o agua de grifo',
     },
     contextoEscolar: {
       location: 'Cancha deportiva durante la clase de educación física',
@@ -370,8 +378,8 @@ export const SCHOOL_CASES = [
       {
         stepNumber: 4,
         title: 'Medio de Transporte Biológico Adecuado',
-        instruction: 'Sumerja el diente en un vaso con LECHE FRESCA FRÍA. Si no hay leche, use suero fisiológico o que el niño escupa saliva en un vaso limpio. NUNCA transportarlo en seco ni en agua del grifo.',
-        visualAid: 'Vaso con leche o solución salina sellada.',
+        instruction: 'Sumerja el diente de inmediato en un vaso con LECHE FRESCA FRÍA o SOLUCIÓN SALINA ESTÉRIL. No use servilletas secas ni agua corriente. (En niños no se recomienda llevarlo suelto en la boca o mejilla por peligro de atragantamiento o deglución accidental; solo si no hay leche ni suero, escupir saliva en un vasito cerrado como último recurso si el escolar colabora).',
+        visualAid: 'Vaso con leche fría o solución salina sellada.',
         ruleType: 'accion-clave',
       },
       {
@@ -421,6 +429,8 @@ export const SCHOOL_CASES = [
           id: 'sim_dent_1',
           situation: 'Encuentras el diente en el suelo con algo de polvo de la cancha. Sofía llora con sangre en los labios.',
           question: '¿Por dónde y cómo debes levantar el diente del suelo?',
+          image: '/images/situaciones/traumatismo-dental/escena-cancha-diente-caido.png',
+          imageCaption: 'Sofía en la cancha: recoge el diente sujetándolo exclusivamente por la corona sin tocar la raíz.',
           options: [
             {
               id: 'opt_d1_a',
@@ -440,6 +450,8 @@ export const SCHOOL_CASES = [
           id: 'sim_dent_2',
           situation: 'El diente tiene restos visibles de tierra superficial. Necesitas limpiarlo antes de transportarlo.',
           question: '¿Qué método de asepsia y enjuague es el avalado por las guías odontológicas de la IADT?',
+          image: '/images/situaciones/traumatismo-dental/infografia-medios-transporte.png',
+          imageCaption: 'Limpieza suave: enjuagar 5-10 segundos en leche fría o solución salina sin frotar.',
           options: [
             {
               id: 'opt_d2_a',
@@ -459,10 +471,12 @@ export const SCHOOL_CASES = [
           id: 'sim_dent_3',
           situation: 'No es viable reimplantarlo en la cancha y debes enviar el diente con la niña al servicio odontológico de urgencias.',
           question: '¿Cuál es el medio idóneo de transporte y conservación para que el diente siga vivo?',
+          image: '/images/situaciones/traumatismo-dental/infografia-medios-transporte.png',
+          imageCaption: 'Transporte biológico seguro: leche fría o solución salina. Prohibido papel seco o agua de grifo.',
           options: [
             {
               id: 'opt_d3_a',
-              text: 'Sumergirlo en un frasco limpio con leche entera fría (o saliva de la estudiante si no hay leche).',
+              text: 'Sumergirlo en un frasco limpio con leche entera fría o solución salina estéril.',
               isCorrect: true,
               feedback: '¡Regla clínica de oro! La leche fría tiene el pH y osmolaridad óptimos para mantener viable el ligamento periodontal durante el traslado.',
             },
@@ -569,10 +583,10 @@ export const SCHOOL_CASES = [
     lastReviewed: '2025-02-15',
     clinicalDisclaimer: 'Fines educativos. El paro cardíaco requiere llamada inmediata al 123 e inicio precoz de RCP sin demora.',
     images: {
-      scene: '/images/casos/sospecha-infarto-escena.webp',
-      action: '/images/casos/sospecha-infarto-ayuda.webp',
-      sceneAlt: 'Docente adulto en pasillo escolar en posición semisentada con apoyo de una colega ante dolor en el pecho',
-      actionAlt: 'Docente realizando llamada de emergencia al 123 junto al desfibrilador externo automático (DEA) escolar',
+      scene: '/images/situaciones/sospecha-infarto/escena-pasillo-dolor-pecho.jpeg',
+      action: '/images/situaciones/sospecha-infarto/demostracion-rcp-dea.png',
+      sceneAlt: 'Nutria médica reconociendo dolor torácico en docente adulto, colocándolo en posición semisentada a 45 grados y pidiendo el DEA y llamada al 123',
+      actionAlt: 'Cadena de supervivencia escolar: 1) Compresiones torácicas 100-120 cpm a 90 grados, 2) Ubicación de parches del DEA, 3) Separarse para análisis de ritmo',
     },
     contextoEscolar: {
       location: 'Pasillo de aulas o sala de profesores',
@@ -672,6 +686,8 @@ export const SCHOOL_CASES = [
           id: 'sim_rcp_1',
           situation: 'Pedro se sienta en una banca quejándose de opresión intensa en el centro del pecho que se irradia al brazo izquierdo, sudor frío y mareo.',
           question: 'Ante la sospecha de síndrome coronario agudo en un adulto consciente, ¿cuál es tu primera medida?',
+          image: '/images/situaciones/sospecha-infarto/escena-pasillo-dolor-pecho.jpeg',
+          imageCaption: 'Reconocimiento de alarma coronaria: posición semisentada a 45°, calmarlo, solicitar el DEA y llamar al 123.',
           options: [
             {
               id: 'opt_r1_a',
@@ -729,6 +745,8 @@ export const SCHOOL_CASES = [
           id: 'sim_rcp_4',
           situation: 'Inicias las compresiones en el centro del tórax sobre el esternón. Otro profesor pregunta por el ritmo y la fuerza.',
           question: '¿Cuáles son los parámetros técnicos indispensables de una RCP de alta calidad?',
+          image: '/images/situaciones/sospecha-infarto/demostracion-rcp-dea.png',
+          imageCaption: 'Compresiones torácicas: 100-120 cpm, profundidad mínima 5 cm y brazos rectos a 90°.',
           options: [
             {
               id: 'opt_r4_a',
@@ -748,6 +766,8 @@ export const SCHOOL_CASES = [
           id: 'sim_rcp_5',
           situation: 'Llega el DEA escolar. Lo colocan junto a ti mientras realizas el ciclo de compresiones.',
           question: '¿Cuál es la secuencia correcta y segura de operación del DEA?',
+          image: '/images/situaciones/sospecha-infarto/demostracion-rcp-dea.png',
+          imageCaption: 'Uso del DEA: parches en pecho superior derecho y costado izquierdo. ¡Nadie toca durante análisis!',
           options: [
             {
               id: 'opt_r5_a',
@@ -820,10 +840,10 @@ export const SCHOOL_CASES = [
     lastReviewed: '2025-02-15',
     clinicalDisclaimer: 'Todo golpe craneal con alteración de la memoria o vómitos requiere valoración médica urgente.',
     images: {
-      scene: '/images/casos/golpe-cabeza-escena.webp',
-      action: '/images/casos/golpe-cabeza-senales.webp',
-      sceneAlt: 'Docente evaluando nivel de orientación y respuesta de un estudiante sentado en el patio tras un tropiezo',
-      actionAlt: 'Aplicación cuidadosa de compresa fría envuelta en paño limpio sobre la frente sin hielo directo',
+      scene: '/images/situaciones/golpes-cabeza/escena-patio-golpe-frente.jpeg',
+      action: '/images/situaciones/golpes-cabeza/infografia-frio-indirecto-monedas.png',
+      sceneAlt: 'Nutria médica evaluando con linterna pupilas y orientación de una estudiante tras golpe en la frente en el recreo',
+      actionAlt: 'Protocolo de aplicación segura de compresa fría con paño limpio 15-20 min y prohibición de frotar con monedas o aplicar hielo directo',
     },
     contextoEscolar: {
       location: 'Patio de recreo junto al área de juegos infantiles',
@@ -914,6 +934,8 @@ export const SCHOOL_CASES = [
           id: 'sim_tec_1',
           situation: 'Lucas tropieza y golpea su frente contra un muro de ladrillo. Llora de dolor y en pocos minutos aparece un hematoma ("chichón") redondeado y visible.',
           question: '¿Cuál es la primera intervención terapéutica segura que debes realizar sobre la frente?',
+          image: '/images/situaciones/golpes-cabeza/infografia-frio-indirecto-monedas.png',
+          imageCaption: 'Aplica frío indirecto envuelto en paño limpio por 15-20 min. ¡Nunca frotar con monedas ni hielo directo!',
           options: [
             {
               id: 'opt_t1_a',
@@ -952,6 +974,8 @@ export const SCHOOL_CASES = [
           id: 'sim_tec_3',
           situation: 'Pasada una hora, Lucas presenta palidez, vomita en dos oportunidades su refrigerio y muestra una somnolencia difícil de revertir.',
           question: '¿Qué indican estos síntomas y qué protocolo debes activar de inmediato?',
+          image: '/images/situaciones/golpes-cabeza/escena-patio-golpe-frente.jpeg',
+          imageCaption: 'Banderas rojas: vómitos, somnolencia, cambios pupilares. ¡Llamada urgente a la Línea 123!',
           options: [
             {
               id: 'opt_t3_a',
@@ -1058,10 +1082,10 @@ export const SCHOOL_CASES = [
     lastReviewed: '2025-02-15',
     clinicalDisclaimer: 'Ante duda diagnóstica entre fractura y esguince, trate siempre como si fuera una fractura hasta tener rayos X.',
     images: {
-      scene: '/images/casos/golpe-cabeza-escena.webp',
-      action: '/images/casos/golpe-cabeza-senales.webp',
-      sceneAlt: 'Docente atendiendo a un estudiante tras una caída en la escalera escolar',
-      actionAlt: 'Inmovilización inicial y aplicación de compresa fría indirecta',
+      scene: '/images/situaciones/fractura-inmovilizacion/escena-escaleras-antebrazo.jpeg',
+      action: '/images/situaciones/fractura-inmovilizacion/infografia-protocolo-rice.jpeg',
+      sceneAlt: 'Nutria médica indicando no jalar ni forzar el antebrazo con deformidad de Mateo en las escaleras escolares',
+      actionAlt: 'Infografía pedagógica del protocolo R.I.C.E. (Reposo, Hielo indirecto, Compresión, Elevación) y prohibición de sobijos o alcohol',
     },
     contextoEscolar: {
       location: 'Patios escolares o escalera del pabellón de primaria',
@@ -1154,6 +1178,8 @@ export const SCHOOL_CASES = [
         {
           id: 'sim_fx_1',
           situation: 'Mateo grita de dolor tras caer en los escalones. Su muñeca y antebrazo presentan una curvatura ósea anormal ("en dorso de tenedor").',
+          image: '/images/situaciones/fractura-inmovilizacion/escena-escaleras-antebrazo.jpeg',
+          imageCaption: 'Identificación visual: Deformidad en el antebrazo tras caída en escaleras. Nunca halar ni acomodar.',
           question: '¿Qué conducta docente respecto al miembro lesionado es la correcta?',
           options: [
             {
@@ -1173,6 +1199,8 @@ export const SCHOOL_CASES = [
         {
           id: 'sim_fx_2',
           situation: 'En la misma caída, otro alumno, Daniel, se dobla el tobillo pero no hay deformidad ósea; solo hinchazón y dolor al apoyar (posible esguince).',
+          image: '/images/situaciones/fractura-inmovilizacion/infografia-protocolo-rice.jpeg',
+          imageCaption: 'Protocolo R.I.C.E. oficial: Reposo, Hielo cubierto, Compresión elástica suave y Elevación.',
           question: '¿Cuál es el protocolo de primeros auxilios estándar (RICE) para este tipo de torcedura articular aguda?',
           options: [
             {

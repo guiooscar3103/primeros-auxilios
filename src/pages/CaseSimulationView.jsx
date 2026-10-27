@@ -14,6 +14,7 @@ import Card from '../components/Card'
 import Button from '../components/Button'
 import Badge from '../components/Badge'
 import ProgressBar from '../components/ProgressBar'
+import { getAssetUrl } from '../utils/constants'
 import './CaseSimulationView.css'
 
 export default function CaseSimulationView({
@@ -148,6 +149,25 @@ export default function CaseSimulationView({
           <span className="situation-tag">Situación en el colegio:</span>
           <p className="situation-text">{currentStep.situation}</p>
         </div>
+
+        {/* Recurso Visual Didáctico del Dilema */}
+        {currentStep.image && (
+          <div className="dilemma-visual-aid">
+            <div className="dilemma-img-wrapper">
+              <img
+                src={getAssetUrl(currentStep.image)}
+                alt={currentStep.imageCaption || currentStep.situation}
+                className="dilemma-img"
+                loading="lazy"
+              />
+            </div>
+            {currentStep.imageCaption && (
+              <p className="dilemma-img-caption">
+                {currentStep.imageCaption}
+              </p>
+            )}
+          </div>
+        )}
 
         <div className="dilemma-question-box">
           <HelpCircle size={20} className="question-icon" />

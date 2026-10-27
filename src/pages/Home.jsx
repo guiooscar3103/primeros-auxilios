@@ -1,258 +1,357 @@
 import PropTypes from 'prop-types'
 import {
-  ShieldAlert,
-  PhoneCall,
   ArrowRight,
-  ShieldCheck,
-  HeartHandshake,
-  Eye,
-  Zap,
-  BookOpen,
-  AlertTriangle,
-  Activity,
-  Smile,
-  Brain,
+  PhoneCall,
+  CheckCircle2,
   Clock,
+  BookOpen,
+  Eye,
+  PlayCircle,
+  ShieldAlert,
+  Compass,
+  FileText,
+  AlertTriangle,
 } from 'lucide-react'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import Badge from '../components/Badge'
-import { EMERGENCY_NUMBER } from '../utils/constants'
+import ProgressBar from '../components/ProgressBar'
+import { EMERGENCY_NUMBER, getAssetUrl } from '../utils/constants'
 import { SCHOOL_CASES } from '../data/schoolCases'
 import './Home.css'
 
 export default function Home({
-  onOpenQuickReference,
+  completedMissions = [],
+  onContinueTraining,
   onSelectCase,
-  onExploreModules,
+  onOpenQuickReference,
   onOpenSources,
 }) {
-  const pilotCase = SCHOOL_CASES[0] // Atragantamiento
+  const totalCases = SCHOOL_CASES.length
+  const completedCount = completedMissions.length
+  const progressPercent = Math.round((completedCount / totalCases) * 100)
+
+  // Determinar el caso activo actual (primer caso no completado o el primero si no hay)
+  const activeCase =
+    SCHOOL_CASES.find((c) => !completedMissions.includes(c.id)) || SCHOOL_CASES[0]
+  const isAllCompleted = completedCount === totalCases
 
   return (
     <div className="home-page animate-fade-in">
-      {/* Banner Principal Docente */}
-      <section className="hero-banner">
-        <div className="hero-banner__badge">
-          <Badge variant="primary" icon={<ShieldCheck size={16} />}>
-            Plataforma para Docentes de Primaria
+      {/* 1. SECCIÓN DE BIENVENIDA Y ORIENTACIÓN DOCENTE */}
+      <section className="welcome-section">
+        <div className="welcome-card">
+          <div className="welcome-text-col">
+            <div className="welcome-meta-pill">
+              <span className="platform-tag">Plataforma Docente</span>
+              <span className="dot-divider">•</span>
+              <span className="audience-tag">Educación Primaria</span>
+            </div>
+
+            <h1 className="welcome-title">
+              Aprende a actuar con seguridad ante una emergencia escolar.
+            </h1>
+
+            <p className="welcome-subtitle">
+              Capacitación paso a paso en primeros auxilios escolares. Aprende a tu propio ritmo
+              o consulta qué hacer en segundos ante cualquier incidente en el colegio.
+            </p>
+
+            {/* Acción Principal Clara y Dominante */}
+            <div className="welcome-action-group">
+              <Button
+                variant="primary"
+                size="lg"
+                iconRight={<ArrowRight size={20} />}
+                onClick={onContinueTraining}
+                className="main-cta-btn"
+              >
+                {completedCount === 0
+                  ? 'Comenzar capacitación'
+                  : isAllCompleted
+                  ? 'Repasar capacitación completa'
+                  : `Continuar capacitación: Caso ${activeCase.number}`}
+              </Button>
+
+              <button
+                type="button"
+                className="consult-inline-link"
+                onClick={onOpenQuickReference}
+              >
+                <PhoneCall size={16} className="inline-icon" />
+                <span>¿Urgencia en el aula? Ver consulta rápida (123)</span>
+              </button>
+            </div>
+
+            {/* Resumen Discreto de Progreso Real */}
+            <div className="welcome-progress-strip">
+              <div className="progress-info-row">
+                <span className="progress-status-text">
+                  {completedCount === 0
+                    ? 'Por comenzar • 5 casos disponibles'
+                    : isAllCompleted
+                    ? '¡Capacitación completada! 5 de 5 casos superados'
+                    : `Has completado ${completedCount} de ${totalCases} casos de primeros auxilios`}
+                </span>
+                <span className="progress-percent-text">{progressPercent}%</span>
+              </div>
+              <ProgressBar value={progressPercent} max={100} color="primary" />
+            </div>
+          </div>
+
+          {/* Imagen de Orientación con la Nutria Doc */}
+          <div className="welcome-visual-col">
+            <div className="mascot-guide-card">
+              <img
+                src={getAssetUrl('/images/personaje/nutria-hero-bienvenida.jpg')}
+                alt="Nutria médica Doc, guía educativa de primeros auxilios escolares"
+                className="mascot-guide-img"
+                loading="eager"
+              />
+              <div className="mascot-guide-caption">
+                <strong className="mascot-name">Doc la Nutria Médica</strong>
+                <span className="mascot-role">Tu guía visual en cada procedimiento</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. RUTA DE APRENDIZAJE: 4 PASOS ESENCIALES (NÚCLEO DE LA CAPACITACIÓN) */}
+      <section className="learning-route-section">
+        <div className="section-heading-clean">
+          <Badge variant="primary" icon={<Compass size={15} />}>
+            Ruta de Capacitación Lineal
           </Badge>
+          <h2 className="section-main-title">Cómo se aprende cada caso: 4 pasos clave</h2>
+          <p className="section-sub-text">
+            Cada módulo organiza la capacitación en una secuencia lógica para que sepas qué hacer sin dudar:
+          </p>
         </div>
 
-        <h1 className="hero-banner__title">
-          Primeros Auxilios y Gestión de <span className="highlight-text">Emergencias Escolares</span>
-        </h1>
+        <div className="linear-route-track">
+          {/* Paso 1: APRENDE */}
+          <div className="route-step-node">
+            <div className="route-step-indicator">
+              <div className="route-step-circle route-step-circle--1">
+                <BookOpen size={20} />
+              </div>
+              <span className="step-tag-number">Paso 1</span>
+            </div>
+            <div className="route-step-details">
+              <h3 className="route-step-title">Aprende</h3>
+              <span className="route-step-subtitle">Reconocimiento Temprano</span>
+              <p className="route-step-desc">
+                Comprende la situación en el colegio y aprende a distinguir signos leves de emergencias de riesgo vital.
+              </p>
+            </div>
+          </div>
 
-        <p className="hero-banner__description">
-          Protocolos de actuación inmediata, simulación de toma de decisiones y consulta rápida ante situaciones que ocurren en el entorno de la escuela primaria.
-        </p>
+          <div className="route-connector-line" aria-hidden="true" />
 
-        <div className="hero-banner__actions">
-          <Button
-            variant="danger"
-            size="lg"
-            iconLeft={<Zap size={20} />}
-            onClick={onOpenQuickReference}
-            className="cta-urgent-btn"
-          >
-            Consulta Rápida de Urgencia
-          </Button>
+          {/* Paso 2: OBSERVA */}
+          <div className="route-step-node">
+            <div className="route-step-indicator">
+              <div className="route-step-circle route-step-circle--2">
+                <Eye size={20} />
+              </div>
+              <span className="step-tag-number">Paso 2</span>
+            </div>
+            <div className="route-step-details">
+              <h3 className="route-step-title">Observa</h3>
+              <span className="route-step-subtitle">Demostración Visual</span>
+              <p className="route-step-desc">
+                Revisa la técnica oficial y la postura correcta con las infografías de Doc y la animación guiada.
+              </p>
+            </div>
+          </div>
+
+          <div className="route-connector-line" aria-hidden="true" />
+
+          {/* Paso 3: PRACTICA */}
+          <div className="route-step-node">
+            <div className="route-step-indicator">
+              <div className="route-step-circle route-step-circle--3">
+                <PlayCircle size={20} />
+              </div>
+              <span className="step-tag-number">Paso 3</span>
+            </div>
+            <div className="route-step-details">
+              <h3 className="route-step-title">Practica</h3>
+              <span className="route-step-subtitle">Simulación de Dilemas</span>
+              <p className="route-step-desc">
+                Resuelve situaciones reales en patio o comedor escolar y recibe retroalimentación formativa inmediata.
+              </p>
+            </div>
+          </div>
+
+          <div className="route-connector-line" aria-hidden="true" />
+
+          {/* Paso 4: REPASA */}
+          <div className="route-step-node">
+            <div className="route-step-indicator">
+              <div className="route-step-circle route-step-circle--4">
+                <ShieldAlert size={20} />
+              </div>
+              <span className="step-tag-number">Paso 4</span>
+            </div>
+            <div className="route-step-details">
+              <h3 className="route-step-title">Repasa</h3>
+              <span className="route-step-subtitle">Señales de Alarma 123</span>
+              <p className="route-step-desc">
+                Ten claras las prohibiciones de seguridad (qué NO hacer) y las pautas para activar la Línea 123.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Acceso Directo al Caso Activo de la Ruta */}
+        <div className="route-active-banner">
+          <div className="active-banner-info">
+            <span className="active-banner-label">
+              {isAllCompleted ? 'Capacitación Completada' : 'Tu siguiente paso en la ruta:'}
+            </span>
+            <strong className="active-banner-title">
+              Caso {activeCase.number}: {activeCase.title}
+            </strong>
+          </div>
           <Button
             variant="secondary"
-            size="lg"
-            iconRight={<ArrowRight size={20} />}
-            onClick={onExploreModules}
+            size="md"
+            iconRight={<ArrowRight size={18} />}
+            onClick={() => onSelectCase(activeCase)}
           >
-            Ver Módulos de Capacitación
+            {isAllCompleted ? 'Revisar Caso' : 'Abrir este Módulo'}
           </Button>
         </div>
-
-        {/* Banner de seguridad y Línea 123 */}
-        <div className="emergency-banner">
-          <div className="emergency-banner__icon">
-            <PhoneCall size={28} />
-          </div>
-          <div className="emergency-banner__info">
-            <h2 className="emergency-banner__title">
-              Protocolo Oficial de Emergencia: Línea <strong>{EMERGENCY_NUMBER}</strong>
-            </h2>
-            <p className="emergency-banner__text">
-              En caso de asfixia grave, pérdida de conciencia o traumatismo severo, asigne a un adulto la llamada al {EMERGENCY_NUMBER} mientras usted asume el control del protocolo y protege al estudiante.
-            </p>
-          </div>
-        </div>
       </section>
 
-      {/* SECCIÓN DE FUNDAMENTOS PARA DOCENTES: ¿QUÉ SON Y POR QUÉ SABERLOS? */}
-      <section className="foundations-section">
-        <div className="section-header">
-          <Badge variant="primary" icon={<BookOpen size={16} />}>
-            Formación Docente Esencial
+      {/* 3. CASOS DE PRIMEROS AUXILIOS (CONSULTA O AVANCE ESPECÍFICO) */}
+      <section className="school-cases-clean-section">
+        <div className="section-heading-clean">
+          <Badge variant="neutral" icon={<FileText size={15} />}>
+            Casos de Primeros Auxilios
           </Badge>
-          <h2 className="section-title">¿Qué son y por qué los adultos deben saber Primeros Auxilios?</h2>
-          <p className="section-subtitle">
-            Durante la jornada escolar, los primeros minutos tras un accidente dependen exclusivamente de la serenidad y conocimiento del docente a cargo:
+          <h2 className="section-main-title">Situaciones escolares disponibles</h2>
+          <p className="section-sub-text">
+            Accede a cualquier caso directamente si necesitas consultar un procedimiento concreto o estudiar fuera de orden:
           </p>
         </div>
 
-        <div className="foundations-grid">
-          <Card className="foundation-def-card" borderVariant="primary">
-            <h3 className="foundation-def-title">¿Qué son los Primeros Auxilios en la Escuela?</h3>
-            <p className="foundation-def-text">
-              Son el conjunto de actuaciones y cuidados iniciales que brinda el personal docente o administrativo a un estudiante tras un accidente o descompensación repentina, preservando la vida, minimizando el daño y facilitando la labor del personal de emergencias médicas.
-            </p>
-          </Card>
-
-          <div className="why-adults-grid">
-            <Card className="why-card" borderVariant="warning">
-              <h4 className="why-card__title">1. Los primeros minutos son vitales</h4>
-              <p className="why-card__desc">
-                En asfixia o paro cardíaco, el daño cerebral irreversible empieza a los 4 minutos. La ambulancia suele demorar más: usted es el primer respondedor.
-              </p>
-            </Card>
-
-            <Card className="why-card" borderVariant="success">
-              <h4 className="why-card__title">2. Evitar secuelas permanentes</h4>
-              <p className="why-card__desc">
-                Conservar un diente permanente en leche o inmovilizar una extremidad sin mover el hueso previene secuelas irreparables de por vida.
-              </p>
-            </Card>
-
-            <Card className="why-card" borderVariant="primary">
-              <h4 className="why-card__title">3. Calma y liderazgo en el aula</h4>
-              <p className="why-card__desc">
-                Ante el pánico infantil por sangre o dolor, un docente preparado proyecta seguridad, evita mitos peligrosos y organiza la respuesta.
-              </p>
-            </Card>
-
-            <Card className="why-card" borderVariant="primary">
-              <h4 className="why-card__title">4. Deber de custodia y cuidado</h4>
-              <p className="why-card__desc">
-                Las familias confían la integridad de sus hijos a la escuela. Saber actuar con base científica es un compromiso ético y profesional.
-              </p>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* SECCIÓN DE LOS INCIDENTES ESCOLARES (TODOS ACTIVOS) */}
-      <section className="school-cases-section">
-        <div className="section-header">
-          <Badge variant="danger" icon={<ShieldAlert size={16} />}>
-            Catálogo de Incidentes Escolares
-          </Badge>
-          <h2 className="section-title">Incidentes que Ocurren en el Entorno Escolar</h2>
-          <p className="section-subtitle">
-            Seleccione un incidente para ver el protocolo, la demostración con nutrias, las banderas rojas y la simulación interactiva:
-          </p>
-        </div>
-
-        <div className="cases-grid">
+        <div className="cases-linear-list">
           {SCHOOL_CASES.map((schoolCase) => {
-            const isDanger = schoolCase.color === 'danger'
+            const isCompleted = completedMissions.includes(schoolCase.id)
+            const isCurrent = activeCase.id === schoolCase.id && !isAllCompleted
+
             return (
-              <Card
+              <div
                 key={schoolCase.id}
-                interactive
-                borderVariant={schoolCase.color}
-                className="case-card-home case-card-home--active"
+                className={`case-row-card ${isCurrent ? 'case-row-card--current' : ''} ${
+                  isCompleted ? 'case-row-card--completed' : ''
+                }`}
                 onClick={() => onSelectCase(schoolCase)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === 'Enter' && onSelectCase(schoolCase)}
               >
-                <div className="case-card-home__badge-row">
-                  <div className={`case-avatar case-avatar--${schoolCase.color}`}>
-                    {schoolCase.id === 'atragantamiento-ovace' && <AlertTriangle size={26} />}
-                    {schoolCase.id === 'perdida-dientes-avulsion' && <Smile size={26} />}
-                    {schoolCase.id === 'paro-cardiaco-infarto' && <Activity size={26} />}
-                    {schoolCase.id === 'chichones-golpes-cabeza' && <Brain size={26} />}
-                    {schoolCase.id === 'caidas-fracturas-torceduras' && <ShieldAlert size={26} />}
+                {/* Miniatura Ilustrada */}
+                <div className="case-row-thumb-wrap">
+                  <img
+                    src={getAssetUrl(schoolCase.images?.scene)}
+                    alt={schoolCase.title}
+                    className="case-row-thumb"
+                    loading="lazy"
+                  />
+                  <span className="case-number-badge">#{schoolCase.number}</span>
+                </div>
+
+                {/* Información Central */}
+                <div className="case-row-content">
+                  <div className="case-row-meta">
+                    <span className="case-category-tag">{schoolCase.category}</span>
+                    <span className="dot-divider">•</span>
+                    <span className="case-time-tag">
+                      <Clock size={13} /> {schoolCase.estimatedMinutes} min
+                    </span>
                   </div>
-                  <Badge variant={isDanger ? 'danger' : 'primary'} size="sm">
-                    {schoolCase.category}
-                  </Badge>
+
+                  <h3 className="case-row-title">{schoolCase.title}</h3>
+                  <p className="case-row-desc">{schoolCase.shortDescription}</p>
                 </div>
-                <h3 className="case-card-home__title">{schoolCase.title}</h3>
-                <p className="case-card-home__desc">{schoolCase.shortDescription}</p>
-                <div className="case-card-home__meta">
-                  <span className="meta-time">
-                    <Clock size={14} /> {schoolCase.estimatedMinutes} min • Guía Nutria 🐾
-                  </span>
-                  <span className="meta-action-link">
-                    Estudiar Caso <ArrowRight size={16} />
+
+                {/* Estado y Acción */}
+                <div className="case-row-action-col">
+                  {isCompleted ? (
+                    <Badge variant="success" icon={<CheckCircle2 size={13} />}>
+                      Completado
+                    </Badge>
+                  ) : isCurrent ? (
+                    <Badge variant="primary" icon={<Clock size={13} />}>
+                      Siguiente
+                    </Badge>
+                  ) : (
+                    <Badge variant="neutral">Por comenzar</Badge>
+                  )}
+
+                  <span className="case-open-link">
+                    Ver caso <ArrowRight size={16} />
                   </span>
                 </div>
-              </Card>
+              </div>
             )
           })}
         </div>
       </section>
 
-      {/* MÉTODO P.A.S. ADAPTADO A DOCENTES */}
-      <section className="pas-section">
-        <div className="section-header">
-          <Badge variant="primary" icon={<ShieldCheck size={16} />}>
-            Marco de Intervención Docente
-          </Badge>
-          <h2 className="section-title">El Protocolo P.A.S. en la Escuela</h2>
-          <p className="section-subtitle">
-            Tres pasos esenciales para actuar con serenidad y liderazgo ante cualquier incidente con alumnos:
-          </p>
-        </div>
-
-        <div className="pas-grid">
-          <Card borderVariant="warning" className="pas-card">
-            <div className="pas-card__badge-row">
-              <span className="pas-letter">P</span>
-              <Badge variant="warning" icon={<Eye size={14} />}>1° Proteger</Badge>
-            </div>
-            <h3 className="pas-card__title">PROTEGER</h3>
-            <p className="pas-card__text">
-              Asegure el salón o patio. Aparte a los demás estudiantes para mantener la calma y despejar la zona de riesgo antes de actuar.
+      {/* 4. BANNER PERMANENTE DE CONSULTA RÁPIDA (PARA URGENCIAS) */}
+      <section className="emergency-direct-strip">
+        <div className="emergency-strip-content">
+          <div className="emergency-strip-icon-box">
+            <PhoneCall size={26} />
+          </div>
+          <div className="emergency-strip-text">
+            <h3 className="emergency-strip-title">
+              ¿Necesitas actuar ante una emergencia ahora mismo?
+            </h3>
+            <p className="emergency-strip-desc">
+              Si estás atendiendo a un estudiante en este momento, no necesitas completar la ruta de capacitación.
+              Consulta directamente las fichas de actuación prioritaria y activa la Línea{' '}
+              <strong>{EMERGENCY_NUMBER}</strong>.
             </p>
-          </Card>
-
-          <Card borderVariant="primary" className="pas-card">
-            <div className="pas-card__badge-row">
-              <span className="pas-letter">A</span>
-              <Badge variant="primary" icon={<PhoneCall size={14} />}>2° Avisar</Badge>
-            </div>
-            <h3 className="pas-card__title">AVISAR</h3>
-            <p className="pas-card__text">
-              Comunique a coordinación o enfermería escolar. Si hay señales de alarma, ordene la llamada inmediata a la Línea {EMERGENCY_NUMBER}.
-            </p>
-          </Card>
-
-          <Card borderVariant="success" className="pas-card">
-            <div className="pas-card__badge-row">
-              <span className="pas-letter">S</span>
-              <Badge variant="success" icon={<HeartHandshake size={14} />}>3° Socorrer</Badge>
-            </div>
-            <h3 className="pas-card__title">SOCORRER</h3>
-            <p className="pas-card__text">
-              Aplique únicamente las maniobras básicas autorizadas. No suministre medicamentos ni aplique remedios caseros no validados.
-            </p>
-          </Card>
+          </div>
         </div>
-      </section>
-
-      {/* TRANSPARENCIA Y FUENTES */}
-      <section className="home-transparency-strip">
-        <div className="transparency-content">
-          <ShieldAlert size={22} className="transparency-icon" />
-          <p className="transparency-text">
-            Contenido técnico basado en consensos AHA, Cruz Roja y CDC. Pendiente de validación sanitaria colegiada.
-          </p>
-        </div>
-        <Button variant="ghost" size="sm" onClick={onOpenSources}>
-          Consultar Fuentes y Términos Sanitarios →
+        <Button
+          variant="danger"
+          size="md"
+          iconLeft={<AlertTriangle size={18} />}
+          onClick={onOpenQuickReference}
+          className="emergency-strip-btn"
+        >
+          Abrir Consulta Rápida ({EMERGENCY_NUMBER})
         </Button>
       </section>
+
+      {/* 5. PIE INSTITUCIONAL DISCRETO */}
+      <footer className="home-clean-footer">
+        <p className="footer-sources-note">
+          Protocolos alineados con directrices de la Cruz Roja, AHA, IADT y CDC Heads Up.
+        </p>
+        <button
+          type="button"
+          className="sources-link-btn"
+          onClick={onOpenSources}
+        >
+          Consultar fuentes sanitarias oficiales y ficha técnica →
+        </button>
+      </footer>
     </div>
   )
 }
 
 Home.propTypes = {
-  onOpenQuickReference: PropTypes.func.isRequired,
+  completedMissions: PropTypes.arrayOf(PropTypes.string),
+  onContinueTraining: PropTypes.func.isRequired,
   onSelectCase: PropTypes.func.isRequired,
-  onExploreModules: PropTypes.func.isRequired,
+  onOpenQuickReference: PropTypes.func.isRequired,
   onOpenSources: PropTypes.func.isRequired,
 }

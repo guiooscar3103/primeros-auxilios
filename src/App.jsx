@@ -85,6 +85,32 @@ function App() {
     handleNavigate(SCREENS.MAP)
   }
 
+  // Obtener el siguiente caso escolar en la ruta lineal
+  const getNextSchoolCase = (currentCaseId) => {
+    const currentIndex = SCHOOL_CASES.findIndex((c) => c.id === currentCaseId)
+    if (currentIndex >= 0 && currentIndex < SCHOOL_CASES.length - 1) {
+      return SCHOOL_CASES[currentIndex + 1]
+    }
+    return null
+  }
+
+  // Continuar automáticamente la capacitación con el primer caso pendiente
+  const handleContinueTraining = () => {
+    const nextPending = SCHOOL_CASES.find((c) => !completedMissions.includes(c.id)) || SCHOOL_CASES[0]
+    handleSelectSchoolCase(nextPending)
+  }
+
+  // Avanzar directamente al siguiente caso
+  const handleGoToNextCase = () => {
+    if (!selectedSchoolCase) return
+    const next = getNextSchoolCase(selectedSchoolCase.id)
+    if (next) {
+      handleSelectSchoolCase(next)
+    } else {
+      handleNavigate(SCREENS.HOME)
+    }
+  }
+
   return (
     <div className="hero-app">
       {/* Barra superior común a toda la experiencia */}
@@ -92,14 +118,18 @@ function App() {
         currentScreen={currentScreen}
         onNavigate={handleNavigate}
         starsCount={stars}
+        completedCount={completedMissions.length}
+        totalCases={SCHOOL_CASES.length}
       />
 
       <main className="hero-main-content">
-        {/* PANTALLA 1: PORTADA DOCENTE */}
+        {/* PANTALLA 1: PORTADA DOCENTE REDISEÑADA (EXPERIENCIA LINEAL Y LIMPIA) */}
         {currentScreen === SCREENS.HOME && (
           <Home
-            onOpenQuickReference={() => handleNavigate(SCREENS.QUICK_REFERENCE)}
+            completedMissions={completedMissions}
+            onContinueTraining={handleContinueTraining}
             onSelectCase={handleSelectSchoolCase}
+            onOpenQuickReference={() => handleNavigate(SCREENS.QUICK_REFERENCE)}
             onExploreModules={() => handleNavigate(SCREENS.MAP)}
             onOpenSources={() => handleNavigate(SCREENS.SOURCES)}
           />
@@ -113,12 +143,15 @@ function App() {
           />
         )}
 
-        {/* PANTALLA 1.2: DETALLE DEL CASO CLÍNICO ESCOLAR */}
+        {/* PANTALLA 1.2: DETALLE DEL CASO CLÍNICO ESCOLAR (4 PASOS LINEALES) */}
         {currentScreen === SCREENS.CASE_DETAIL && selectedSchoolCase && (
           <CaseDetailView
             caseData={selectedSchoolCase}
+            isCompleted={completedMissions.includes(selectedSchoolCase.id)}
+            nextCase={getNextSchoolCase(selectedSchoolCase.id)}
             onStartSimulation={handleStartCaseSimulation}
-            onBack={() => handleNavigate(SCREENS.MAP)}
+            onGoToNextCase={handleGoToNextCase}
+            onBack={() => handleNavigate(SCREENS.HOME)}
             onNavigateToSources={() => handleNavigate(SCREENS.SOURCES)}
           />
         )}

@@ -1,13 +1,31 @@
+import { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Shield, BookOpen, Zap, PhoneCall, Award, FileText } from 'lucide-react'
+import {
+  Shield,
+  BookOpen,
+  PhoneCall,
+  CheckCircle2,
+  FileText,
+  Menu,
+  X,
+  Home as HomeIcon,
+} from 'lucide-react'
 import { EMERGENCY_NUMBER, SCREENS } from '../utils/constants'
 import './Navbar.css'
 
 export default function Navbar({
   currentScreen,
   onNavigate,
-  starsCount = 0,
+  completedCount = 0,
+  totalCases = 5,
 }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const handleLinkClick = (screen) => {
+    onNavigate(screen)
+    setMobileMenuOpen(false)
+  }
+
   return (
     <header className="hero-navbar">
       <div className="hero-navbar__container">
@@ -15,35 +33,42 @@ export default function Navbar({
         <button
           type="button"
           className="hero-navbar__brand"
-          onClick={() => onNavigate(SCREENS.HOME)}
-          aria-label="Ir a la portada de Pequeños Héroes"
+          onClick={() => handleLinkClick(SCREENS.HOME)}
+          aria-label="Ir al inicio de Pequeños Héroes"
         >
           <div className="hero-navbar__logo-icon">
-            <Shield size={24} className="logo-shield" />
+            <Shield size={22} className="logo-shield" />
           </div>
           <div className="hero-navbar__brand-text">
             <span className="hero-navbar__logo-text">Pequeños Héroes</span>
-            <span className="hero-navbar__sub-tag">Primeros Auxilios Docentes</span>
+            <span className="hero-navbar__sub-tag">Primeros Auxilios Escolares</span>
           </div>
         </button>
 
-        {/* Indicador de Emergencia 123 */}
-        <div className="hero-navbar__emergency" title="Número de emergencias oficial en Colombia">
-          <PhoneCall size={16} className="emergency-icon" />
-          <span>Línea <strong>{EMERGENCY_NUMBER}</strong></span>
-        </div>
+        {/* Acceso Directo de Emergencia (Siempre Visible) */}
+        <button
+          type="button"
+          className={`navbar-urgent-btn ${
+            currentScreen === SCREENS.QUICK_REFERENCE ? 'navbar-urgent-btn--active' : ''
+          }`}
+          onClick={() => handleLinkClick(SCREENS.QUICK_REFERENCE)}
+          title="Consulta rápida de primeros auxilios y Línea 123"
+        >
+          <PhoneCall size={16} className="urgent-btn-icon" />
+          <span className="urgent-btn-text">Consulta Rápida ({EMERGENCY_NUMBER})</span>
+        </button>
 
-        {/* Controles de navegación */}
+        {/* Navegación Principal de Escritorio */}
         <nav className="hero-navbar__nav" aria-label="Navegación principal">
           <button
             type="button"
-            className={`nav-link-btn nav-link-btn--urgent ${
-              currentScreen === SCREENS.QUICK_REFERENCE ? 'nav-link-btn--active' : ''
+            className={`nav-link-btn ${
+              currentScreen === SCREENS.HOME ? 'nav-link-btn--active' : ''
             }`}
-            onClick={() => onNavigate(SCREENS.QUICK_REFERENCE)}
+            onClick={() => handleLinkClick(SCREENS.HOME)}
           >
-            <Zap size={17} />
-            <span className="nav-link-text">Consulta Rápida</span>
+            <HomeIcon size={16} />
+            <span>Inicio</span>
           </button>
 
           <button
@@ -53,10 +78,10 @@ export default function Navbar({
                 ? 'nav-link-btn--active'
                 : ''
             }`}
-            onClick={() => onNavigate(SCREENS.MAP)}
+            onClick={() => handleLinkClick(SCREENS.MAP)}
           >
-            <BookOpen size={17} />
-            <span className="nav-link-text">Módulos</span>
+            <BookOpen size={16} />
+            <span>Capacitación</span>
           </button>
 
           <button
@@ -64,25 +89,93 @@ export default function Navbar({
             className={`nav-link-btn ${
               currentScreen === SCREENS.SOURCES ? 'nav-link-btn--active' : ''
             }`}
-            onClick={() => onNavigate(SCREENS.SOURCES)}
+            onClick={() => handleLinkClick(SCREENS.SOURCES)}
           >
-            <FileText size={17} />
-            <span className="nav-link-text">Fuentes</span>
+            <FileText size={16} />
+            <span>Fuentes</span>
+          </button>
+
+          {/* Resumen Discreto de Progreso Real */}
+          <div
+            className="hero-navbar__progress-badge"
+            title={`Has completado ${completedCount} de ${totalCases} casos`}
+          >
+            <CheckCircle2 size={14} className="progress-badge-icon" />
+            <span>
+              {completedCount}/{totalCases}
+            </span>
+          </div>
+        </nav>
+
+        {/* Botón de Menú Móvil */}
+        <button
+          type="button"
+          className="hero-navbar__toggle"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={mobileMenuOpen}
+        >
+          {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+
+      {/* Menú Desplegable Móvil */}
+      {mobileMenuOpen && (
+        <div className="hero-navbar__mobile-drawer animate-fade-in">
+          <button
+            type="button"
+            className={`mobile-nav-item ${
+              currentScreen === SCREENS.HOME ? 'mobile-nav-item--active' : ''
+            }`}
+            onClick={() => handleLinkClick(SCREENS.HOME)}
+          >
+            <HomeIcon size={18} />
+            <span>Inicio</span>
           </button>
 
           <button
             type="button"
-            className={`nav-link-btn ${
-              currentScreen === SCREENS.ACHIEVEMENTS ? 'nav-link-btn--active' : ''
+            className={`mobile-nav-item ${
+              currentScreen === SCREENS.MAP || currentScreen === SCREENS.CASE_DETAIL
+                ? 'mobile-nav-item--active'
+                : ''
             }`}
-            onClick={() => onNavigate(SCREENS.ACHIEVEMENTS)}
-            title="Competencias docentes y progreso acumulado"
+            onClick={() => handleLinkClick(SCREENS.MAP)}
           >
-            <Award size={17} />
-            <span className="nav-link-text">Progreso ({starsCount} pts)</span>
+            <BookOpen size={18} />
+            <span>Ruta de Capacitación</span>
           </button>
-        </nav>
-      </div>
+
+          <button
+            type="button"
+            className={`mobile-nav-item mobile-nav-item--urgent ${
+              currentScreen === SCREENS.QUICK_REFERENCE ? 'mobile-nav-item--active' : ''
+            }`}
+            onClick={() => handleLinkClick(SCREENS.QUICK_REFERENCE)}
+          >
+            <PhoneCall size={18} />
+            <span>Consulta Rápida (Línea {EMERGENCY_NUMBER})</span>
+          </button>
+
+          <button
+            type="button"
+            className={`mobile-nav-item ${
+              currentScreen === SCREENS.SOURCES ? 'mobile-nav-item--active' : ''
+            }`}
+            onClick={() => handleLinkClick(SCREENS.SOURCES)}
+          >
+            <FileText size={18} />
+            <span>Fuentes Sanitarias Oficiales</span>
+          </button>
+
+          <div className="mobile-progress-row">
+            <CheckCircle2 size={16} />
+            <span>
+              Progreso docente: {completedCount} de {totalCases} casos completados
+            </span>
+          </div>
+        </div>
+      )}
     </header>
   )
 }
@@ -90,5 +183,6 @@ export default function Navbar({
 Navbar.propTypes = {
   currentScreen: PropTypes.string.isRequired,
   onNavigate: PropTypes.func.isRequired,
-  starsCount: PropTypes.number,
+  completedCount: PropTypes.number,
+  totalCases: PropTypes.number,
 }
