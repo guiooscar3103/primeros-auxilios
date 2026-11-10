@@ -14,9 +14,9 @@ export default function QuickReferenceView({ onBackToHome, onOpenCaseDetail }) {
       <header className="quick-reference-header">
         <div className="quick-reference-header__meta">
           <Badge variant="danger" icon={<Zap size={16} />}>
-            Consulta Rápida de Emergencia
+            Consulta rápida de emergencia
           </Badge>
-          <h1 className="quick-reference-title">Fichas de Actuación Prioritaria</h1>
+          <h1 className="quick-reference-title">Fichas de actuación prioritaria</h1>
           <p className="quick-reference-subtitle">
             Acceso inmediato a los pasos esenciales para actuar en el aula o patio escolar. Diseñado para lectura en menos de 30 segundos.
           </p>
@@ -28,7 +28,7 @@ export default function QuickReferenceView({ onBackToHome, onOpenCaseDetail }) {
             <PhoneCall size={28} />
           </div>
           <div className="urgent-call-box__content">
-            <h2 className="urgent-call-box__title">Línea de Emergencias Oficial: {EMERGENCY_NUMBER}</h2>
+            <h2 className="urgent-call-box__title">Línea de emergencias oficial: {EMERGENCY_NUMBER}</h2>
             <p className="urgent-call-box__text">
               Ante riesgo vital, pérdida de conciencia o dificultad respiratoria grave, asigne a otra persona la llamada inmediata al {EMERGENCY_NUMBER} mientras usted aplica el protocolo.
             </p>

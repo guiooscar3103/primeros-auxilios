@@ -41,7 +41,7 @@ export default function Navbar({
           </div>
           <div className="hero-navbar__brand-text">
             <span className="hero-navbar__logo-text">Pequeños Héroes</span>
-            <span className="hero-navbar__sub-tag">Primeros Auxilios Escolares</span>
+            <span className="hero-navbar__sub-tag">Primeros auxilios escolares</span>
           </div>
         </button>
 
@@ -55,7 +55,7 @@ export default function Navbar({
           title="Consulta rápida de primeros auxilios y Línea 123"
         >
           <PhoneCall size={16} className="urgent-btn-icon" />
-          <span className="urgent-btn-text">Consulta Rápida ({EMERGENCY_NUMBER})</span>
+          <span className="urgent-btn-text">Consulta rápida ({EMERGENCY_NUMBER})</span>
         </button>
 
         {/* Navegación Principal de Escritorio */}

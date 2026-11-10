@@ -21,7 +21,7 @@
     "id": "perdida-dientes-avulsion",
     "number": 2,
     "title": "Pérdida de Dientes por Golpe",
-    "shortDescription": "Protocolo IADT ante avulsión de diente permanente en patios y canchas de educación física.",
+    "shortDescription": "Protocolo IADT ante la salida o caída completa de un diente definitivo (avulsión) en patios y canchas escolares.",
     "category": "Traumatismo Dental",
     "targetAudience": "Docentes de Primaria",
     "estimatedMinutes": 5,
@@ -57,7 +57,7 @@
     "id": "chichones-golpes-cabeza",
     "number": 4,
     "title": "Golpes en la Cabeza y Chichón",
-    "shortDescription": "Manejo seguro de hematomas craneales en el recreo y detección oportuna de banderas rojas neurológicas.",
+    "shortDescription": "Manejo seguro de chichones y golpes leves en el recreo y detección de señales de alarma neurológicas.",
     "category": "Traumatismo Craneal",
     "targetAudience": "Docentes de Primaria",
     "estimatedMinutes": 6,
@@ -67,7 +67,7 @@
     "isLocked": false,
     "learningGoals": [
       "Aplicar frío indirecto sin frotar ni presionar con monedas",
-      "Vigilar banderas rojas: vómitos recurrentes, somnolencia y anisocoria",
+      "Vigilar señales de alarma: vómitos recurrentes, somnolencia y anisocoria",
       "Pautas de observación médica escrita para las 24-48 horas posteriores"
     ]
   },

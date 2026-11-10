@@ -110,7 +110,7 @@ export default function Home({
               />
               <div className="mascot-guide-caption">
                 <strong className="mascot-name">Doc la Nutria Médica</strong>
-                <span className="mascot-role">Tu guía visual en cada procedimiento</span>
+                <span className="mascot-role">Tu guía visual para cada procedimiento</span>
               </div>
             </div>
           </div>
@@ -121,7 +121,7 @@ export default function Home({
       <section className="learning-route-section">
         <div className="section-heading-clean">
           <Badge variant="primary" icon={<Compass size={15} />}>
-            Ruta de Capacitación Lineal
+            Ruta de capacitación lineal
           </Badge>
           <h2 className="section-main-title">Cómo se aprende cada caso: 4 pasos clave</h2>
           <p className="section-sub-text">
@@ -140,7 +140,7 @@ export default function Home({
             </div>
             <div className="route-step-details">
               <h3 className="route-step-title">Aprende</h3>
-              <span className="route-step-subtitle">Reconocimiento Temprano</span>
+              <span className="route-step-subtitle">Reconocimiento temprano</span>
               <p className="route-step-desc">
                 Comprende la situación en el colegio y aprende a distinguir signos leves de emergencias de riesgo vital.
               </p>
@@ -159,7 +159,7 @@ export default function Home({
             </div>
             <div className="route-step-details">
               <h3 className="route-step-title">Observa</h3>
-              <span className="route-step-subtitle">Demostración Visual</span>
+              <span className="route-step-subtitle">Demostración visual</span>
               <p className="route-step-desc">
                 Revisa la técnica oficial y la postura correcta con las infografías de Doc y la animación guiada.
               </p>
@@ -178,7 +178,7 @@ export default function Home({
             </div>
             <div className="route-step-details">
               <h3 className="route-step-title">Practica</h3>
-              <span className="route-step-subtitle">Simulación de Dilemas</span>
+              <span className="route-step-subtitle">Simulación de dilemas</span>
               <p className="route-step-desc">
                 Resuelve situaciones reales en patio o comedor escolar y recibe retroalimentación formativa inmediata.
               </p>
@@ -197,7 +197,7 @@ export default function Home({
             </div>
             <div className="route-step-details">
               <h3 className="route-step-title">Repasa</h3>
-              <span className="route-step-subtitle">Señales de Alarma 123</span>
+              <span className="route-step-subtitle">Señales de alarma 123</span>
               <p className="route-step-desc">
                 Ten claras las prohibiciones de seguridad (qué NO hacer) y las pautas para activar la Línea 123.
               </p>
@@ -209,7 +209,7 @@ export default function Home({
         <div className="route-active-banner">
           <div className="active-banner-info">
             <span className="active-banner-label">
-              {isAllCompleted ? 'Capacitación Completada' : 'Tu siguiente paso en la ruta:'}
+              {isAllCompleted ? 'Capacitación completada' : 'Tu siguiente paso en la ruta:'}
             </span>
             <strong className="active-banner-title">
               Caso {activeCase.number}: {activeCase.title}
@@ -221,7 +221,7 @@ export default function Home({
             iconRight={<ArrowRight size={18} />}
             onClick={() => onSelectCase(activeCase)}
           >
-            {isAllCompleted ? 'Revisar Caso' : 'Abrir este Módulo'}
+            {isAllCompleted ? 'Revisar caso' : 'Abrir este módulo'}
           </Button>
         </div>
       </section>
@@ -230,7 +230,7 @@ export default function Home({
       <section className="school-cases-clean-section">
         <div className="section-heading-clean">
           <Badge variant="neutral" icon={<FileText size={15} />}>
-            Casos de Primeros Auxilios
+            Casos de primeros auxilios
           </Badge>
           <h2 className="section-main-title">Situaciones escolares disponibles</h2>
           <p className="section-sub-text">
@@ -327,7 +327,7 @@ export default function Home({
           onClick={onOpenQuickReference}
           className="emergency-strip-btn"
         >
-          Abrir Consulta Rápida ({EMERGENCY_NUMBER})
+          Abrir consulta rápida ({EMERGENCY_NUMBER})
         </Button>
       </section>
 

@@ -52,7 +52,7 @@
         "situation": "Un escolar cae desde un pasamanos de 2 metros; se golpea la cabeza, vomita dos veces y muestra somnolencia anormal.",
         "icon": "AlertTriangle",
         "correctCategory": "emergency_123",
-        "feedback": "¡Excelente discernimiento clínico! Los vómitos repetidos y la alteración de la conciencia son banderas rojas de trauma craneoencefálico que exigen traslado urgente al 123."
+        "feedback": "¡Excelente discernimiento clínico! Los vómitos repetidos y la somnolencia anormal son señales de alarma de traumatismo craneal que exigen traslado urgente al 123."
       },
       {
         "id": "c6",

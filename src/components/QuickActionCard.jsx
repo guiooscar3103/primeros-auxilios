@@ -33,7 +33,7 @@ export default function QuickActionCard({
         <div className="quick-action-card__header">
           <div className="quick-action-card__tags">
             <Badge variant="danger" size="sm" icon={<AlertCircle size={14} />}>
-              Consulta de Urgencia
+              Consulta de urgencia
             </Badge>
             <Badge variant="neutral" size="sm">
               {category}
@@ -86,7 +86,7 @@ export default function QuickActionCard({
       {consultaRapida.prohibiciones && consultaRapida.prohibiciones.length > 0 && (
         <div className="prohibitions-block">
           <span className="prohibitions-heading">
-            <XCircle size={15} className="prohibitions-icon" /> Acciones Contraindicadas:
+            <XCircle size={15} className="prohibitions-icon" /> Acciones contraindicadas:
           </span>
           <ul className="prohibitions-list">
             {consultaRapida.prohibiciones.map((item, idx) => (
@@ -104,7 +104,7 @@ export default function QuickActionCard({
             onClick={onOpenFullCase}
             iconRight={<ArrowRight size={16} />}
           >
-            Ver Módulo y Demostración Visual Completa
+            Ver módulo y demostración visual completa
           </Button>
         </div>
       )}

@@ -14,6 +14,7 @@ import Card from '../components/Card'
 import Button from '../components/Button'
 import Badge from '../components/Badge'
 import ProgressBar from '../components/ProgressBar'
+import ZoomableImage from '../components/ZoomableImage'
 import { getAssetUrl } from '../utils/constants'
 import './CaseSimulationView.css'
 
@@ -82,7 +83,7 @@ export default function CaseSimulationView({
             <Award size={56} className="badge-trophy" />
           </div>
           <Badge variant="success" size="md">
-            Simulación de Toma de Decisiones Finalizada
+            Simulación de toma de decisiones finalizada
           </Badge>
           <h2 className="complete-heading">
             {caseData.title}: {simulation.title}
@@ -93,7 +94,7 @@ export default function CaseSimulationView({
           </p>
 
           <div className="complete-summary-box">
-            <span className="summary-title">Competencia Docente Evaluada:</span>
+            <span className="summary-title">Competencia docente evaluada:</span>
             <p className="summary-text">
               {simulation.competenceSummary ||
                 `Capacidad de resolver dilemas críticos en ${caseData.title.toLowerCase()}, evitando prácticas contraindicadas y aplicando protocolos oficiales.`}
@@ -106,7 +107,7 @@ export default function CaseSimulationView({
               iconLeft={<RotateCcw size={18} />}
               onClick={handleRestart}
             >
-              Repetir Simulación
+              Repetir simulación
             </Button>
             <Button
               variant="success"
@@ -114,7 +115,7 @@ export default function CaseSimulationView({
               iconRight={<ArrowRight size={20} />}
               onClick={() => onCompleteSimulation(caseData.id)}
             >
-              Guardar Progreso y Continuar
+              Guardar progreso y continuar
             </Button>
           </div>
         </Card>
@@ -128,7 +129,7 @@ export default function CaseSimulationView({
       <header className="case-sim-header">
         <div className="case-sim-header__meta">
           <Badge variant="primary" icon={<ShieldAlert size={14} />}>
-            Simulación Clínica Docente
+            Simulación clínica docente
           </Badge>
           <h1 className="case-sim-title">{simulation.title}</h1>
           <p className="case-sim-sub">{simulation.scenarioSummary}</p>
@@ -154,11 +155,11 @@ export default function CaseSimulationView({
         {currentStep.image && (
           <div className="dilemma-visual-aid">
             <div className="dilemma-img-wrapper">
-              <img
+              <ZoomableImage
                 src={getAssetUrl(currentStep.image)}
                 alt={currentStep.imageCaption || currentStep.situation}
                 className="dilemma-img"
-                loading="lazy"
+                caption={currentStep.imageCaption}
               />
             </div>
             {currentStep.imageCaption && (
@@ -222,9 +223,8 @@ export default function CaseSimulationView({
         {/* Retroalimentación Formativa Inmediata */}
         {isAnswered && selectedOption && (
           <div
-            className={`feedback-box ${
-              selectedOption.isCorrect ? 'feedback-box--correct' : 'feedback-box--incorrect'
-            }`}
+            className={`feedback-box ${selectedOption.isCorrect ? 'feedback-box--correct' : 'feedback-box--incorrect'
+              }`}
           >
             <div className="feedback-box__header">
               {selectedOption.isCorrect ? (

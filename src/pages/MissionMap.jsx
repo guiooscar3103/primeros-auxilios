@@ -69,9 +69,9 @@ export default function MissionMap({
       <header className="map-header">
         <div className="map-header__meta">
           <Badge variant="primary" icon={<Compass size={16} />}>
-            Plan de Formación Docente
+            Plan de formación docente
           </Badge>
-          <h1 className="map-title">Módulos de Formación en Primeros Auxilios</h1>
+          <h1 className="map-title">Módulos de formación en primeros auxilios</h1>
           <p className="map-description">
             Domina los protocolos oficiales de actuación inmediata, revisa señales de alarma y entrena con simulaciones de toma de decisiones para proteger a tus estudiantes.
           </p>
@@ -81,7 +81,7 @@ export default function MissionMap({
         <Card className="map-progress-card">
           <div className="map-progress-card__content">
             <div>
-              <span className="map-progress-card__label">Progreso de Capacitación</span>
+              <span className="map-progress-card__label">Progreso de capacitación</span>
               <p className="map-progress-card__value">
                 {completedCount} de {totalMissions} módulos completados ({progressPercent}%)
               </p>
@@ -189,8 +189,8 @@ export default function MissionMap({
                     {mission.isLocked
                       ? 'Bloqueado'
                       : isCompleted
-                      ? 'Repasar Módulo'
-                      : 'Estudiar Módulo'}
+                      ? 'Repasar módulo'
+                      : 'Estudiar módulo'}
                   </Button>
                 </div>
               </div>
@@ -203,9 +203,9 @@ export default function MissionMap({
       <section className="special-training-section">
         <div className="section-title-wrap">
           <Badge variant="warning" icon={<Sparkles size={16} />}>
-            Área de Práctica Interactiva
+            Área de práctica interactiva
           </Badge>
-          <h2 className="special-training-heading">Talleres de Aplicación Práctica</h2>
+          <h2 className="special-training-heading">Talleres de aplicación práctica</h2>
           <p className="special-training-sub">
             Pon a prueba tu criterio docente con el clasificador de triage escolar y resuelve dilemas ético-clínicos simulados.
           </p>
@@ -218,8 +218,8 @@ export default function MissionMap({
               <Gamepad2 size={36} />
             </div>
             <div className="training-card__content">
-              <Badge variant="primary" size="sm">Ejercicio Práctico</Badge>
-              <h3 className="training-card__title">Triage de Urgencias Escolares</h3>
+              <Badge variant="primary" size="sm">Ejercicio práctico</Badge>
+              <h3 className="training-card__title">Triage de urgencias escolares</h3>
               <p className="training-card__text">
                 Distingue rápidamente qué incidentes se resuelven en la enfermería escolar y cuáles exigen activar la Línea 123.
               </p>
@@ -229,7 +229,7 @@ export default function MissionMap({
                 onClick={onOpenMinigame}
                 iconRight={<ArrowRight size={18} />}
               >
-                Iniciar Triage (+30 pts)
+                Iniciar triage (+30 pts)
               </Button>
             </div>
           </Card>
@@ -240,8 +240,8 @@ export default function MissionMap({
               <ShieldAlert size={36} />
             </div>
             <div className="training-card__content">
-              <Badge variant="warning" size="sm">Simulación Clínica</Badge>
-              <h3 className="training-card__title">Simulación de Dilemas de Urgencia</h3>
+              <Badge variant="warning" size="sm">Simulación clínica</Badge>
+              <h3 className="training-card__title">Simulación de dilemas de urgencia</h3>
               <p className="training-card__text">
                 Entrena tus decisiones ante asfixia (OVACE), trauma dental, paro cardíaco, chichones y fracturas en la escuela.
               </p>
@@ -251,7 +251,7 @@ export default function MissionMap({
                 onClick={onOpenSimulation}
                 iconRight={<ArrowRight size={18} />}
               >
-                Ir a Casos Clínicos
+                Ir a casos clínicos
               </Button>
             </div>
           </Card>
@@ -261,7 +261,7 @@ export default function MissionMap({
       {/* Navegación al pie */}
       <div className="map-footer-actions">
         <Button variant="ghost" onClick={onBackToHome}>
-          ← Volver a la Portada
+          ← Volver a la portada
         </Button>
       </div>
     </div>

@@ -215,7 +215,7 @@ function App() {
       {/* Pie de página accesible */}
       <footer className="hero-footer">
         <p>
-          Pequeños Héroes • Primeros Auxilios para Docentes de Primaria • En caso de riesgo vital llame inmediatamente al{' '}
+          Pequeños Héroes • Primeros auxilios escolares para docentes • En caso de riesgo vital llame inmediatamente al{' '}
           <strong>{EMERGENCY_NUMBER}</strong> • Material educativo sujeto a validación profesional
         </p>
       </footer>

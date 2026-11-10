@@ -101,9 +101,9 @@ export default function Achievements({
       {/* Encabezado */}
       <header className="achievements-header">
         <Badge variant="warning" icon={<Trophy size={16} />}>
-          Acreditación y Certificación Docente
+          Acreditación y certificación docente
         </Badge>
-        <h1 className="achievements-title">Panel de Competencias Escolares</h1>
+        <h1 className="achievements-title">Panel de competencias escolares</h1>
         <p className="achievements-subtitle">
           Registro formal de horas de capacitación, competencias de primeros auxilios demostradas y módulos acreditados.
         </p>
@@ -114,13 +114,13 @@ export default function Achievements({
         <Card borderVariant="warning" className="stat-card">
           <Star size={40} className="stat-icon-gold" />
           <span className="stat-big-number">{stars}</span>
-          <span className="stat-label-text">Puntos de Formación</span>
+          <span className="stat-label-text">Puntos de formación</span>
         </Card>
 
         <Card borderVariant="success" className="stat-card">
           <FileCheck size={40} className="stat-icon-green" />
           <span className="stat-big-number">{completedMissions.length} de 5</span>
-          <span className="stat-label-text">Módulos Acreditados</span>
+          <span className="stat-label-text">Módulos acreditados</span>
         </Card>
 
         <Card borderVariant="primary" className="stat-card">
@@ -128,13 +128,13 @@ export default function Achievements({
           <span className="stat-big-number">
             {ALL_BADGES.filter((b) => isBadgeUnlocked(b)).length} de {ALL_BADGES.length}
           </span>
-          <span className="stat-label-text">Competencias Obtenidas</span>
+          <span className="stat-label-text">Competencias obtenidas</span>
         </Card>
       </div>
 
       {/* Catálogo de Insignias y Competencias */}
       <section className="badges-section">
-        <h2 className="badges-section-title">Insignias de Competencia Clínica Escolar</h2>
+        <h2 className="badges-section-title">Insignias de competencia clínica escolar</h2>
         <p className="badges-section-sub">
           Se otorgan al resolver con éxito los dilemas de simulación y completar los módulos de formación:
         </p>

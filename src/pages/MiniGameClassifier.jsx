@@ -82,19 +82,19 @@ export default function MiniGameClassifier({ onFinishGame, onBack }) {
       <div className="classifier-results-wrap animate-fade-in">
         <Card className="classifier-results-card" borderVariant="success">
           <Award size={52} className="celebration-star animate-float" />
-          <Badge variant="success" size="md">Triage Escolar Completado</Badge>
-          <h2 className="results-heading">Competencia en Triage y Criterio de Urgencia</h2>
+          <Badge variant="success" size="md">Triage escolar completado</Badge>
+          <h2 className="results-heading">Competencia en triage y criterio de urgencia</h2>
           <p className="results-lead">
             Has clasificado correctamente {correctCount} de {totalCards} situaciones escolares de primeros auxilios.
           </p>
 
           <div className="results-stars-badge">
-            <span className="stars-earned-text">+{totalPointsWon} Puntos de Competencia</span>
+            <span className="stars-earned-text">+{totalPointsWon} puntos de competencia</span>
           </div>
 
           <div className="results-actions-row">
             <Button variant="outline" iconLeft={<RotateCcw size={18} />} onClick={handleRestart}>
-              Repetir Triage
+              Repetir triage
             </Button>
             <Button
               variant="success"
@@ -102,7 +102,7 @@ export default function MiniGameClassifier({ onFinishGame, onBack }) {
               iconRight={<ArrowRight size={20} />}
               onClick={() => onFinishGame(totalPointsWon)}
             >
-              Guardar Puntos y Continuar
+              Guardar puntos y continuar
             </Button>
           </div>
         </Card>
@@ -118,10 +118,10 @@ export default function MiniGameClassifier({ onFinishGame, onBack }) {
       <header className="classifier-header">
         <div className="classifier-meta">
           <Button variant="ghost" size="sm" onClick={onBack}>
-            ← Volver a Módulos
+            ← Volver a módulos
           </Button>
           <Badge variant="secondary" icon={<Gamepad2 size={16} />}>
-            Ejercicio Práctico de Triage
+            Ejercicio práctico de triage
           </Badge>
         </div>
 

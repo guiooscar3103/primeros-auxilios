@@ -4,7 +4,7 @@
 
 export const FOUNDATIONS_INFO = {
   id: 'fundamentos-docentes',
-  title: 'Fundamentos de Primeros Auxilios Escolares',
+  title: 'Fundamentos de primeros auxilios escolares',
   subtitle: '¿Qué son y por qué todo docente debe dominarlos?',
   definition: 'Los primeros auxilios en la escuela son el conjunto de actuaciones iniciales y cuidados inmediatos que brinda el personal docente o administrativo a un estudiante víctima de un accidente o enfermedad repentina, antes de la llegada de asistencia médica especializada o el traslado a un centro asistencial.',
   whyAdultsMustKnow: [
@@ -74,7 +74,7 @@ export const SCHOOL_CASES = [
     reconocimiento: {
       description: 'Diferenciar entre obstrucción leve (tos efectiva) y grave (asfixia total). Intervenir en una tos efectiva puede empeorar el cuadro.',
       mild: {
-        title: 'Obstrucción Leve (Parcial)',
+        title: 'Obstrucción leve (parcial)',
         signs: [
           'El niño tose con fuerza y de forma ruidosa.',
           'Puede hablar, llorar o quejarse con dificultad.',
@@ -83,7 +83,7 @@ export const SCHOOL_CASES = [
         actionSummary: 'NO dar golpes en la espalda ni compresiones. Estimular a que continúe tosiendo fuertemente.',
       },
       severe: {
-        title: 'Obstrucción Grave (Total)',
+        title: 'Obstrucción grave (total)',
         signs: [
           'Signo universal de asfixia: manos agarrándose el cuello con desesperación.',
           'Incapacidad total para hablar, emitir sonido o toser con fuerza.',
@@ -97,42 +97,42 @@ export const SCHOOL_CASES = [
     actuacion: [
       {
         stepNumber: 1,
-        title: 'Verificar y Preguntar Rápido',
+        title: 'Verificar y preguntar rápido',
         instruction: 'Agáchese a la altura del estudiante y pregunte enérgicamente: "¿Te estás ahogando? ¿Puedes hablar?". Observe si puede toser o hablar.',
         visualAid: 'Contacto visual directo y confirmación del signo universal de asfixia.',
         ruleType: 'accion-clave',
       },
       {
         stepNumber: 2,
-        title: 'Si la Obstrucción es Leve: Estimular la Tos',
+        title: 'Si la obstrucción es leve: estimular la tos',
         instruction: 'Quédese a su lado y ordénele con firmeza: "¡Tose fuerte, sigue tosiendo!". La tos es el mecanismo más eficaz para expulsar el cuerpo extraño.',
         visualAid: 'Acompañamiento sin golpear la espalda erguido ni dar líquidos.',
         ruleType: 'cuidado-seguro',
       },
       {
         stepNumber: 3,
-        title: 'Si es Grave: Posición para Compresiones Abdominales',
+        title: 'Si es grave: posición para compresiones abdominales',
         instruction: 'Póngase de pie tras el niño (arrodíllese si es bajo). Pase sus brazos por debajo de sus axilas abrazando su abdomen.',
         visualAid: 'Nutria adulta posicionada detrás de la nutria pequeña rodeando la cintura.',
         ruleType: 'accion-clave',
       },
       {
         stepNumber: 4,
-        title: 'Ubicación Exacta de las Manos',
+        title: 'Ubicación exacta de las manos',
         instruction: 'Haga un puño con una mano. Apoye el pulgar dos dedos por encima del ombligo, bien por debajo del esternón. Cubra su puño con la otra mano.',
         visualAid: 'Puño cerrado dos dedos sobre el ombligo, sin comprimir costillas.',
         ruleType: 'accion-clave',
       },
       {
         stepNumber: 5,
-        title: 'Empujes hacia Adentro y Arriba ("J")',
+        title: 'Empujes hacia adentro y arriba ("J")',
         instruction: 'Comprima con fuerza hacia adentro y hacia arriba en forma de "J" repetidamente hasta que el objeto salga o el niño pierda la conciencia.',
         visualAid: 'Presión ascendente diafragmática para aumentar la presión torácica.',
         ruleType: 'accion-clave',
       },
       {
         stepNumber: 6,
-        title: 'Si Pierde la Conciencia: Protocolo RCP + 123',
+        title: 'Si pierde la conciencia: protocolo RCP + 123',
         instruction: 'Acuéstelo en el suelo plano, ordene llamar al 123 e inicie 30 compresiones torácicas. Mire la boca antes de ventilar: retire el objeto SOLO si está visible.',
         visualAid: 'Inicio de RCP básica en el suelo y llamada inmediata de emergencia.',
         ruleType: 'emergencia-critica',
@@ -295,7 +295,7 @@ export const SCHOOL_CASES = [
     id: 'perdida-dientes-avulsion',
     number: 2,
     title: 'Pérdida de Dientes por Golpe',
-    shortDescription: 'Manejo de la avulsión de dientes definitivos en educación física o el recreo escolar.',
+    shortDescription: 'Manejo ante la caída o salida completa de un diente definitivo (avulsión) en educación física o el recreo escolar.',
     category: 'Traumatismo Odontológico',
     targetAudience: 'Docentes y personal escolar',
     estimatedMinutes: 5,
@@ -334,9 +334,9 @@ export const SCHOOL_CASES = [
       initialObservation: 'Sangrado en la encía, alveolo dental vacío y diente visible sobre el suelo.',
     },
     reconocimiento: {
-      description: 'Verificar si el diente es permanente (definitivo, a partir de los 6 años) o temporal (de leche). Los dientes de leche NO se reimplantan.',
+      description: 'La avulsión dental es la salida completa del diente fuera de su encía tras un impacto. Verificar si el diente es permanente (definitivo, a partir de los 6 años) o temporal (de leche). Los dientes de leche NO se reimplantan.',
       mild: {
-        title: 'Diente de Leche (Temporal, < 6 años)',
+        title: 'Diente de leche (temporal, < 6 años)',
         signs: [
           'Estudiante en preescolar o transición.',
           'Diente pequeño con raíz corta.',
@@ -344,7 +344,7 @@ export const SCHOOL_CASES = [
         actionSummary: 'NO intentar reimplantar (dañaría el germen definitivo). Detener sangrado con gasa limpia y remitir a odontopediatría.',
       },
       severe: {
-        title: 'Diente Permanente (Definitivo, 6 a 12+ años)',
+        title: 'Diente permanente (definitivo, 6 a 12+ años)',
         signs: [
           'Incisivo central, lateral o canino definitivo.',
           'El diente salió completo con su raíz intacta.',
@@ -356,42 +356,42 @@ export const SCHOOL_CASES = [
     actuacion: [
       {
         stepNumber: 1,
-        title: 'Buscar el Diente de Inmediato',
+        title: 'Buscar el diente de inmediato',
         instruction: 'Localice la pieza dental caída rápidamente en la cancha o patio escolar.',
         visualAid: 'Búsqueda rápida en el área del impacto.',
         ruleType: 'accion-clave',
       },
       {
         stepNumber: 2,
-        title: 'Sujetar ÚNICAMENTE por la Corona',
+        title: 'Sujetar ÚNICAMENTE por la corona',
         instruction: 'Tome el diente por la parte blanca y ancha que muerde (la corona). NUNCA toque la raíz amarilla ni la frote.',
         visualAid: 'Dedos sujetando la corona sin tocar la raíz para proteger las células del ligamento periodontal.',
         ruleType: 'accion-clave',
       },
       {
         stepNumber: 3,
-        title: 'Enjuague Breve si está Sucio',
+        title: 'Enjuague breve si está sucio',
         instruction: 'Si el diente tiene tierra, enjuáguelo brevemente (máximo 5-10 segundos) bajo un chorro suave de leche fría o suero salino. NUNCA use jabón, alcohol ni cepillos.',
         visualAid: 'Enjuague suave sin frotar con ninguna toalla o papel.',
         ruleType: 'cuidado-seguro',
       },
       {
         stepNumber: 4,
-        title: 'Medio de Transporte Biológico Adecuado',
+        title: 'Medio de transporte biológico adecuado',
         instruction: 'Sumerja el diente de inmediato en un vaso con LECHE FRESCA FRÍA o SOLUCIÓN SALINA ESTÉRIL. No use servilletas secas ni agua corriente. (En niños no se recomienda llevarlo suelto en la boca o mejilla por peligro de atragantamiento o deglución accidental; solo si no hay leche ni suero, escupir saliva en un vasito cerrado como último recurso si el escolar colabora).',
         visualAid: 'Vaso con leche fría o solución salina sellada.',
         ruleType: 'accion-clave',
       },
       {
         stepNumber: 5,
-        title: 'Controlar el Sangrado en la Boca',
+        title: 'Controlar el sangrado en la boca',
         instruction: 'Pida a la niña que muerda suavemente una gasa limpia o pañuelo de tela doblado sobre el hueco vacío para cohibir el sangrado.',
         visualAid: 'Compresión suave con gasa limpia en el alveolo dental.',
         ruleType: 'cuidado-seguro',
       },
       {
         stepNumber: 6,
-        title: 'Traslado Odontológico de Emergencia (< 60 min)',
+        title: 'Traslado odontológico de emergencia (< 60 min)',
         instruction: 'Comuníquese con los padres y traslade a la estudiante a un odontólogo de inmediato. Cada minuto en seco reduce la probabilidad de salvar el diente.',
         visualAid: 'Traslado prioritario con el diente en leche en menos de 1 hora.',
         ruleType: 'emergencia-critica',
@@ -423,7 +423,7 @@ export const SCHOOL_CASES = [
     ],
     simulacion: {
       title: 'Simulación: Caída y Diente Volado en Educación Física',
-      scenarioSummary: 'Sofía (9 años) sufre avulsión de su diente incisivo central definitivo tras chocar en la cancha.',
+      scenarioSummary: 'Sofía (9 años) sufre la salida completa de su diente incisivo central definitivo (avulsión dental) tras chocar en la cancha.',
       steps: [
         {
           id: 'sim_dent_1',
@@ -529,7 +529,7 @@ export const SCHOOL_CASES = [
       ],
     },
     consultaRapida: {
-      tituloEmergencia: 'Avulsión Dental Permanente',
+      tituloEmergencia: 'Diente Definitivo Caído por Golpe (Avulsión)',
       preguntaDiagnostica: '¿Es un diente definitivo y cayó al suelo?',
       caminoLeve: {
         condicion: 'Diente de leche (< 6 años)',
@@ -541,7 +541,7 @@ export const SCHOOL_CASES = [
       },
       paroOInconsciencia: {
         condicion: 'Si además no responde o vomitó',
-        accion: 'Priorizar TEC (cabeza): LLAMAR AL 123 + Posición lateral si respira. El diente queda en segundo plano.',
+        accion: 'Priorizar traumatismo en cabeza (TEC): LLAMAR AL 123 + Posición lateral si respira. El diente queda en segundo plano.',
       },
       prohibiciones: [
         'No tocar ni frotar la raíz.',
@@ -597,7 +597,7 @@ export const SCHOOL_CASES = [
     reconocimiento: {
       description: 'Diferenciar entre persona consciente con dolor torácico (sospecha de infarto) y persona inconsciente que no respira (paro cardíaco confirmado).',
       mild: {
-        title: 'Sospecha de Infarto (Persona Consciente)',
+        title: 'Sospecha de infarto (persona consciente)',
         signs: [
           'Dolor opresivo o pesadez en el centro del pecho que puede irradiar al brazo izquierdo o cuello.',
           'Sudor frío, palidez y sensación de falta de aire.',
@@ -606,7 +606,7 @@ export const SCHOOL_CASES = [
         actionSummary: 'Sentar en posición semisentada, aflojar ropa, calmar, llamar urgente al 123 y pedir que traigan el DEA por si colapsa.',
       },
       severe: {
-        title: 'Paro Cardiorrespiratorio (Inconsciente)',
+        title: 'Paro cardiorrespiratorio (inconsciente)',
         signs: [
           'No responde al llamarlo ni al tocar con firmeza sus hombros.',
           'No respira normalmente (o solo da jadeos agónicos/boqueos inefectivos "gasping").',
@@ -618,42 +618,42 @@ export const SCHOOL_CASES = [
     actuacion: [
       {
         stepNumber: 1,
-        title: 'Evaluar Respuesta y Seguridad',
+        title: 'Evaluar respuesta y seguridad',
         instruction: 'Asegure el pasillo o salón. Arrodíllese junto a la víctima, sacuda suavemente sus hombros y pregunte en voz alta: "¿Me escucha? ¿Se encuentra bien?".',
         visualAid: 'Estímulo verbal y táctil en los hombros.',
         ruleType: 'accion-clave',
       },
       {
         stepNumber: 2,
-        title: 'Verificar Respiración (Máximo 10 Segundos)',
+        title: 'Verificar respiración (máximo 10 segundos)',
         instruction: 'Mire el pecho durante no más de 10 segundos. Si no se mueve o solo hace boqueos agónicos, asuma que está en Paro Cardíaco.',
         visualAid: 'Observación rápida de la elevación del pecho.',
         ruleType: 'accion-clave',
       },
       {
         stepNumber: 3,
-        title: 'Activar Alarma: Ordenar Llamar al 123 y Pedir DEA',
+        title: 'Activar alarma: ordenar llamar al 123 y pedir DEA',
         instruction: 'Señale a una persona específica con el dedo y ordene: "¡Usted, llame ahora mismo al 123, diga que tenemos una persona en paro y traiga el desfibrilador (DEA) del colegio!".',
         visualAid: 'Asignación directa de la llamada al 123 y búsqueda del DEA escolar.',
         ruleType: 'emergencia-critica',
       },
       {
         stepNumber: 4,
-        title: 'Iniciar Compresiones Torácicas de Calidad',
+        title: 'Iniciar compresiones torácicas de calidad',
         instruction: 'Coloque el talón de una mano en el centro del pecho (mitad inferior del esternón) y la otra mano entrelazada encima. Con los codos rectos, comprima fuerte y rápido (100 a 120 compresiones por minuto, 5 cm de profundidad). Permita que el pecho regrese por completo.',
         visualAid: 'Brazos perpendiculares a 90 grados, ritmo constante y compresión enérgica.',
         ruleType: 'accion-clave',
       },
       {
         stepNumber: 5,
-        title: 'Encender y Usar el DEA Apenas Llegue',
+        title: 'Encender y usar el DEA apenas llegue',
         instruction: 'Abra el DEA, enciéndalo y siga sus instrucciones de voz. Coloque los parches autoadhesivos en el pecho desnudo (uno bajo la clavícula derecha, otro en el costado izquierdo). Nadie debe tocar a la víctima durante el análisis ni la descarga.',
         visualAid: 'Colocación de parches del DEA según los diagramas visuales del equipo.',
         ruleType: 'accion-clave',
       },
       {
         stepNumber: 6,
-        title: 'Continuar hasta que Llegue la Ambulancia',
+        title: 'Continuar hasta que llegue la ambulancia',
         instruction: 'No interrumpa las compresiones excepto cuando el DEA lo indique para analizar o descargar, o hasta que el personal médico del 123 tome el relevo.',
         visualAid: 'Relevo entre docentes cada 2 minutos para evitar agotamiento físico.',
         ruleType: 'cuidado-seguro',
@@ -813,7 +813,7 @@ export const SCHOOL_CASES = [
     id: 'chichones-golpes-cabeza',
     number: 4,
     title: 'Golpes en la Cabeza y Chichón',
-    shortDescription: 'Evaluación de hematomas epicraneales leves frente a banderas rojas de traumatismo encéfalo-craneano (TEC) y conmoción.',
+    shortDescription: 'Evaluación de chichones o hematomas leves en la cabeza (epicraneales) frente a señales de alarma de traumatismo craneal (TEC) y conmoción.',
     category: 'Traumatismo Craneal',
     targetAudience: 'Docentes y personal escolar',
     estimatedMinutes: 5,
@@ -852,9 +852,9 @@ export const SCHOOL_CASES = [
       initialObservation: 'Llanto inmediato (buen pronóstico), inflamación localizada en frente sin deformidad ósea.',
     },
     reconocimiento: {
-      description: 'Diferenciar entre un chichón benigno superficial (hacia afuera) y un traumatismo craneal con banderas rojas neurológicas.',
+      description: 'Diferenciar entre un chichón benigno superficial (hematoma epicraneal por fuera del cráneo) y señales de alarma de daño cerebral o traumatismo craneal (TEC).',
       mild: {
-        title: 'Chichón Leve Benigno (Hematoma Epicraneal)',
+        title: 'Chichón leve benigno (hematoma superficial o epicraneal)',
         signs: [
           'El niño lloró de inmediato tras el impacto.',
           'Hinchazón localizada visible hacia afuera.',
@@ -863,7 +863,7 @@ export const SCHOOL_CASES = [
         actionSummary: 'Aplicar frío local indirecto (hielo envuelto en paño), reposo vigilado y notificación a los padres.',
       },
       severe: {
-        title: 'Banderas Rojas de Alarma (Alerta Médica 123)',
+        title: 'Señales de alarma de daño cerebral (alerta médica 123)',
         signs: [
           'Pérdida de conciencia (aunque haya sido por pocos segundos).',
           'Vómitos repetidos (más de 1 episodio).',
@@ -878,28 +878,28 @@ export const SCHOOL_CASES = [
     actuacion: [
       {
         stepNumber: 1,
-        title: 'Calmar y Evaluar Nivel de Conciencia',
+        title: 'Calmar y evaluar nivel de conciencia',
         instruction: 'Agáchese, dele tranquilidad y hágale 3 preguntas claras: "¿Cómo te llamas? ¿Sabes dónde estamos? ¿Qué estábamos jugando?". Observe si responde con coherencia.',
         visualAid: 'Evaluación rápida de orientación y habla del niño.',
         ruleType: 'accion-clave',
       },
       {
         stepNumber: 2,
-        title: 'Aplicar Frío Local Indirecto',
+        title: 'Aplicar frío local indirecto',
         instruction: 'Coloque compresas frías o hielo envuelto en un paño limpio durante 10 a 15 minutos sobre el chichón. NUNCA aplique el hielo directamente sobre la piel desnuda.',
         visualAid: 'Hielo cubierto con toalla limpia aplicado suavemente sobre el hematoma.',
         ruleType: 'cuidado-seguro',
       },
       {
         stepNumber: 3,
-        title: 'Observación Activa en Enfermería o Aula',
+        title: 'Observación activa en enfermería o aula',
         instruction: 'Mantenga al estudiante sentado o semisentado en reposo. Observe su comportamiento durante 30 a 60 minutos en la escuela.',
         visualAid: 'Vigilancia de signos de alerta y estado de alerta.',
         ruleType: 'cuidado-seguro',
       },
       {
         stepNumber: 4,
-        title: 'Si Aparecen Banderas Rojas: Línea 123',
+        title: 'Si aparecen señales de alarma: Línea 123',
         instruction: 'Si el niño vomita, se muestra confuso, camina torpemente o se duerme sin responder con facilidad, active inmediatamente el traslado urgente al centro de salud.',
         visualAid: 'Activación del 123 ante signos de conmoción o hematoma intracraneal.',
         ruleType: 'emergencia-critica',
@@ -975,17 +975,17 @@ export const SCHOOL_CASES = [
           situation: 'Pasada una hora, Lucas presenta palidez, vomita en dos oportunidades su refrigerio y muestra una somnolencia difícil de revertir.',
           question: '¿Qué indican estos síntomas y qué protocolo debes activar de inmediato?',
           image: '/images/situaciones/golpes-cabeza/escena-patio-golpe-frente.jpeg',
-          imageCaption: 'Banderas rojas: vómitos, somnolencia, cambios pupilares. ¡Llamada urgente a la Línea 123!',
+          imageCaption: 'Señales de alarma: vómitos, somnolencia, cambios pupilares. ¡Llamada urgente a la Línea 123!',
           options: [
             {
               id: 'opt_t3_a',
-              text: 'Son banderas rojas de hipertensión intracraneal o conmoción cerebral severa: llamar al 123 y remitir a urgencias hospitalarias de inmediato.',
+              text: 'Son señales de alarma de presión dentro del cráneo o conmoción cerebral severa: llamar al 123 y remitir a urgencias hospitalarias de inmediato.',
               isCorrect: true,
               feedback: '¡Actuación salvavidas! Vómitos recurrentes y alteración del nivel de conciencia exigen tomografía y valoración neuroquirúrgica inmediata.',
             },
             {
               id: 'opt_t3_b',
-              text: 'Acostarlo en una colchoneta oscura a dormir para que repose el estómago del mareo.',
+              text: 'Acostarlo a dormir en una colchoneta en un lugar tranquilo para que descanse y se le pase el mareo.',
               isCorrect: false,
               feedback: 'Peligro crítico: Confundir una hemorragia intracraneal con cansancio y dejar dormir al niño sin evaluación médica puede ser mortal.',
             },
@@ -1096,7 +1096,7 @@ export const SCHOOL_CASES = [
     reconocimiento: {
       description: 'Diferenciar entre torcedura/esguince (dolor articular moderado sin deformidad) y fractura (deformidad ósea, dolor insoportable, crepitación).',
       mild: {
-        title: 'Torcedura / Esguince Leve a Moderado',
+        title: 'Torcedura o esguince leve a moderado',
         signs: [
           'Articulación hinchada sin desviación anormal del eje del hueso.',
           'Puede mover los dedos pero duele al apoyar peso.',
@@ -1105,7 +1105,7 @@ export const SCHOOL_CASES = [
         actionSummary: 'Protocolo R.I.C.E. (Reposo, Hielo indirecto, Compresión suave con vendaje, Elevación).',
       },
       severe: {
-        title: 'Fractura Sospechada o Abierta',
+        title: 'Fractura sospechada o abierta',
         signs: [
           'Deformidad evidente en la muñeca, brazo o pierna ("en tenedor").',
           'Incapacidad total de mover el miembro.',
@@ -1118,35 +1118,35 @@ export const SCHOOL_CASES = [
     actuacion: [
       {
         stepNumber: 1,
-        title: 'No Mover a la Víctima Innecesariamente',
+        title: 'No mover a la víctima innecesariamente',
         instruction: 'Calme a Mateo en el suelo. Examine la extremidad afectada sin retirar violentamente zapatos o prendas ajustadas que causen dolor.',
         visualAid: 'Examen visual sin forzar el movimiento del miembro lesionado.',
         ruleType: 'accion-clave',
       },
       {
         stepNumber: 2,
-        title: 'Inmovilizar en la Posición Encontrada',
+        title: 'Inmovilizar en la posición encontrada',
         instruction: 'Si sospecha fractura de muñeca o brazo, fije la articulación con una tablilla, cartón rígido o revistero doblado envuelto en una toalla, sujetándolo con venda elástica suave sin apretar excesivamente.',
         visualAid: 'Férula improvisada con cartón o toalla sujetando la articulación por arriba y por abajo.',
         ruleType: 'accion-clave',
       },
       {
         stepNumber: 3,
-        title: 'Retirar Objetos que Puedan Comprimir',
+        title: 'Retirar objetos que puedan comprimir',
         instruction: 'Si la lesión es en mano o muñeca, retire anillos, relojes o pulseras de inmediato antes de que la inflamación corte la circulación.',
         visualAid: 'Retiro preventivo de accesorios antes del edema.',
         ruleType: 'cuidado-seguro',
       },
       {
         stepNumber: 4,
-        title: 'Aplicar Frío Local sin Presionar',
+        title: 'Aplicar frío local sin presionar',
         instruction: 'Coloque hielo envuelto en paño sobre la zona dolorosa para atenuar la inflamación y el dolor.',
         visualAid: 'Compresa fría sobre la zona hinchada.',
         ruleType: 'cuidado-seguro',
       },
       {
         stepNumber: 5,
-        title: 'Si la Fractura es Abierta (Hueso Visible)',
+        title: 'Si la fractura es abierta (hueso visible)',
         instruction: 'Cubra la herida con apósitos o gasas limpias sin empujar el hueso hacia adentro. Llame urgentemente a la Línea 123.',
         visualAid: 'Cobertura estéril sin manipular el fragmento óseo.',
         ruleType: 'emergencia-critica',

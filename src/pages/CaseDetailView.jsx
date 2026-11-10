@@ -21,6 +21,7 @@ import Button from '../components/Button'
 import Badge from '../components/Badge'
 import QuickActionCard from '../components/QuickActionCard'
 import NutriaGuideAnimation from '../components/NutriaGuideAnimation'
+import ZoomableImage from '../components/ZoomableImage'
 import { getAssetUrl } from '../utils/constants'
 import './CaseDetailView.css'
 
@@ -34,6 +35,16 @@ export default function CaseDetailView({
   onNavigateToSources,
 }) {
   const [activeTab, setActiveTab] = useState('protocolo') // 'protocolo' | 'ficha'
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab)
+    if (tab === 'protocolo') {
+      const stepElement = document.getElementById('paso-1-aprende')
+      if (stepElement) {
+        stepElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }
+  }
 
   if (!caseData) return null
 
@@ -73,34 +84,41 @@ export default function CaseDetailView({
       {/* Encabezado del Caso */}
       <header className="case-hero">
         <div className="case-hero__content">
-          <span className="case-hero__lead-tag">Módulo de Capacitación Docente</span>
+          <span className="case-hero__lead-tag">Módulo de capacitación docente</span>
           <h1 className="case-hero__title">{title}</h1>
           <p className="case-hero__description">{caseData.shortDescription}</p>
         </div>
 
-        {/* Pestañas de Vista: Protocolo Guiado vs Ficha Rápida */}
-        <div className="case-tabs">
-          <button
-            type="button"
-            className={`case-tab-btn ${activeTab === 'protocolo' ? 'case-tab-btn--active' : ''}`}
-            onClick={() => setActiveTab('protocolo')}
-          >
-            <BookOpen size={16} /> Capacitación Guiada (4 Pasos)
-          </button>
-          <button
-            type="button"
-            className={`case-tab-btn ${activeTab === 'ficha' ? 'case-tab-btn--active' : ''}`}
-            onClick={() => setActiveTab('ficha')}
-          >
-            <FileText size={16} /> Ficha Resumen de Urgencia
-          </button>
+        {/* Selector de Pestañas de Vista: Protocolo Guiado vs Ficha Rápida */}
+        <div className="case-tabs-container">
+          <span className="case-tabs-label">Vista del caso:</span>
+          <div className="case-tabs" role="tablist" aria-label="Modo de visualización del caso">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={activeTab === 'protocolo'}
+              className={`case-tab-btn ${activeTab === 'protocolo' ? 'case-tab-btn--active' : ''}`}
+              onClick={() => handleTabClick('protocolo')}
+            >
+              <BookOpen size={16} /> Capacitación guiada (4 pasos)
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={activeTab === 'ficha'}
+              className={`case-tab-btn ${activeTab === 'ficha' ? 'case-tab-btn--active' : ''}`}
+              onClick={() => handleTabClick('ficha')}
+            >
+              <FileText size={16} /> Ficha resumen de urgencia
+            </button>
+          </div>
         </div>
       </header>
 
       {/* CONTENIDO 1: FICHA RÁPIDA CONDENSADA */}
       {activeTab === 'ficha' && (
         <section className="case-quick-tab animate-fade-in">
-          <QuickActionCard caseData={caseData} />
+          <QuickActionCard caseData={caseData} onOpenFullCase={() => handleTabClick('protocolo')} />
           <div className="quick-tab-action">
             <Button
               variant="primary"
@@ -108,7 +126,7 @@ export default function CaseDetailView({
               iconRight={<PlayCircle size={18} />}
               onClick={onStartSimulation}
             >
-              Practicar con la Simulación Escolar
+              Practicar con la simulación escolar
             </Button>
           </div>
         </section>
@@ -144,7 +162,7 @@ export default function CaseDetailView({
           <section className="pedagogical-section" id="paso-1-aprende">
             <div className="section-label">
               <Badge variant="primary" size="sm">
-                Paso 1: Aprende • Escena y Reconocimiento Temprano
+                Paso 1: Aprende • Escena y reconocimiento temprano
               </Badge>
             </div>
 
@@ -153,15 +171,15 @@ export default function CaseDetailView({
               {caseData.images?.scene && (
                 <Card className="photo-card" borderVariant="primary">
                   <div className="photo-card__badge-row">
-                    <span className="photo-pill photo-pill--scene">📸 Escena en el Colegio</span>
+                    <span className="photo-pill photo-pill--scene">📸 Escena en el colegio</span>
                     <span className="photo-meta-tag">{contextoEscolar.location}</span>
                   </div>
                   <div className="scenario-image-wrap">
-                    <img
+                    <ZoomableImage
                       src={getAssetUrl(caseData.images.scene)}
                       alt={caseData.images.sceneAlt || caseData.title}
                       className="scenario-img"
-                      loading="eager"
+                      caption={caseData.images.sceneAlt}
                     />
                   </div>
                   <div className="photo-card__caption">
@@ -182,20 +200,20 @@ export default function CaseDetailView({
               {caseData.images?.action && (
                 <Card className="photo-card photo-card--action" borderVariant="danger">
                   <div className="photo-card__badge-row">
-                    <span className="photo-pill photo-pill--action">⚡ Maniobra Oficial Recomendada</span>
-                    <span className="photo-meta-tag">Protocolo Vital</span>
+                    <span className="photo-pill photo-pill--action">⚡ Maniobra oficial recomendada</span>
+                    <span className="photo-meta-tag">Protocolo vital</span>
                   </div>
                   <div className="scenario-image-wrap">
-                    <img
+                    <ZoomableImage
                       src={getAssetUrl(caseData.images.action)}
                       alt={caseData.images.actionAlt || caseData.title}
                       className="clinical-action-img"
-                      loading="eager"
+                      caption={caseData.images.actionAlt}
                     />
                   </div>
                   <div className="photo-card__caption">
                     <div className="photo-card__student-row">
-                      <strong>Técnica de Primeros Auxilios:</strong>
+                      <strong>Técnica de primeros auxilios:</strong>
                     </div>
                     <p className="clinical-action-short">{caseData.images.actionAlt}</p>
                     <div className="scenario-focus-pill scenario-focus-pill--action">
@@ -211,7 +229,7 @@ export default function CaseDetailView({
 
             {/* Clasificación Diagnóstica: Leve vs Grave */}
             <div className="recognition-box-wrap">
-              <h3 className="sub-section-title">Reconocimiento Temprano: ¿Cuándo es Leve o Grave?</h3>
+              <h3 className="sub-section-title">Reconocimiento temprano: ¿cuándo es leve o grave?</h3>
               <p className="section-intro-text">{reconocimiento.description}</p>
 
               <div className="recognition-grid">
@@ -254,7 +272,7 @@ export default function CaseDetailView({
           <section className="pedagogical-section" id="paso-2-observa">
             <div className="section-label">
               <Badge variant="primary" size="sm">
-                Paso 2: Observa • Demostración Visual con la Nutria Doc
+                Paso 2: Observa • Demostración visual con la nutria Doc
               </Badge>
             </div>
 
@@ -265,7 +283,7 @@ export default function CaseDetailView({
 
             {/* Pasos Oficiales Numerados */}
             <div className="steps-flow">
-              <h3 className="sub-section-title">Pasos de Actuación Oficial</h3>
+              <h3 className="sub-section-title">Pasos de actuación oficial</h3>
               {actuacion.map((step) => (
                 <div
                   key={step.stepNumber}
@@ -289,13 +307,13 @@ export default function CaseDetailView({
           <section className="pedagogical-section" id="paso-3-practica">
             <div className="section-label">
               <Badge variant="warning" size="sm">
-                Paso 3: Practica • Simulación de Decisiones Escolares
+                Paso 3: Practica • Simulación de decisiones escolares
               </Badge>
             </div>
 
             <Card className="sim-cta-card" borderVariant="primary">
               <div className="sim-cta-content">
-                <span className="sim-tag-lead">Actividad Práctica Guiada</span>
+                <span className="sim-tag-lead">Actividad práctica guiada</span>
                 <h3 className="sim-cta-title">
                   {caseData.simulacion?.title || 'Pon a prueba tu criterio en este caso'}
                 </h3>
@@ -311,7 +329,7 @@ export default function CaseDetailView({
                 onClick={onStartSimulation}
                 className="sim-cta-btn"
               >
-                Comenzar Simulación Práctica
+                Comenzar simulación práctica
               </Button>
             </Card>
           </section>
@@ -320,7 +338,7 @@ export default function CaseDetailView({
           <section className="pedagogical-section" id="paso-4-repasa">
             <div className="section-label">
               <Badge variant="danger" size="sm">
-                Paso 4: Repasa • Señales de Alarma (123) y Seguridad
+                Paso 4: Repasa • Señales de alarma (123) y seguridad
               </Badge>
             </div>
 
@@ -329,7 +347,7 @@ export default function CaseDetailView({
               <div className="alarm-card__intro">
                 <PhoneCall size={24} className="alarm-phone-icon" />
                 <div>
-                  <h3 className="alarm-heading">Criterios de Activación Inmediata de Emergencias (123)</h3>
+                  <h3 className="alarm-heading">Criterios de activación inmediata de emergencias (123)</h3>
                   <p className="alarm-sub">
                     Si se presenta cualquiera de estos signos, active inmediatamente la Línea 123 y el protocolo directivo del colegio:
                   </p>
@@ -347,7 +365,7 @@ export default function CaseDetailView({
 
             {/* Lo que NUNCA debe hacerse */}
             <div className="prohibitions-section-block">
-              <h3 className="sub-section-title">Lo que NUNCA debes hacer (Errores Críticos)</h3>
+              <h3 className="sub-section-title">Lo que NUNCA debes hacer (errores críticos)</h3>
               <div className="prohibitions-grid">
                 {queNoHacer.map((item, idx) => (
                   <Card key={idx} className="contra-card" borderVariant="danger">
@@ -371,7 +389,7 @@ export default function CaseDetailView({
               </div>
 
               <div className="sources-list">
-                <h4 className="sources-title">Guías Clínicas Oficiales de Referencia:</h4>
+                <h4 className="sources-title">Guías clínicas oficiales de referencia:</h4>
                 {sources.map((src, idx) => (
                   <div key={idx} className="source-item">
                     <span className="source-inst">{src.institution} ({src.year})</span>
@@ -385,7 +403,7 @@ export default function CaseDetailView({
                 <span>Fecha de última revisión editorial: {lastReviewed}</span>
                 {onNavigateToSources && (
                   <Button variant="ghost" size="sm" onClick={onNavigateToSources}>
-                    Ver Registro General de Fuentes
+                    Ver registro general de fuentes
                   </Button>
                 )}
               </div>
@@ -444,7 +462,7 @@ export default function CaseDetailView({
                     iconRight={<ArrowRight size={18} />}
                     onClick={onStartSimulation}
                   >
-                    Comenzar Simulación Práctica
+                    Comenzar simulación práctica
                   </Button>
                 </div>
               </div>

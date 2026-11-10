@@ -26,7 +26,7 @@ export default function SourcesView({ onBack }) {
           <ShieldAlert size={32} />
         </div>
         <div className="disclaimer-banner__text">
-          <h2 className="disclaimer-heading">Delimitación de Responsabilidad y Alcance Educativo</h2>
+          <h2 className="disclaimer-heading">Delimitación de responsabilidad y alcance educativo</h2>
           <p>
             <strong>Pequeños Héroes</strong> es una plataforma de apoyo pedagógico para docentes de educación primaria. Provee pautas organizadas de primera respuesta ante incidentes escolares comunes.
           </p>
@@ -43,7 +43,7 @@ export default function SourcesView({ onBack }) {
 
       {/* Lista de Referencias Oficiales Utilizadas */}
       <section className="sources-catalog">
-        <h2 className="catalog-title">Guías y Organismos Internacionales y Nacionales de Referencia</h2>
+        <h2 className="catalog-title">Guías y organismos internacionales y nacionales de referencia</h2>
 
         <div className="sources-grid">
           <Card className="source-org-card" borderVariant="primary">
@@ -67,13 +67,13 @@ export default function SourcesView({ onBack }) {
             <p className="org-focus">
               Iniciativa HEADS UP: Información y señales de alarma sobre traumatismo craneoencefálico y conmoción cerebral en entornos escolares y deportivos.
             </p>
-            <span className="org-topic">Aplicado a: Golpes en la cabeza y banderas rojas de TEC.</span>
+            <span className="org-topic">Aplicado a: Golpes en la cabeza y señales de alarma de traumatismo craneal (TEC).</span>
           </Card>
 
           <Card className="source-org-card" borderVariant="primary">
             <h3 className="org-name">Asociación Internacional de Traumatología Dental (IADT)</h3>
             <p className="org-focus">
-              Guías clínicas para el manejo de lesiones dentales traumáticas en niños y adolescentes: conservación y transporte del diente avulsionado.
+              Guías clínicas para el manejo de lesiones dentales traumáticas en niños y adolescentes: conservación y transporte del diente caído por golpe (avulsión).
             </p>
             <span className="org-topic">Aplicado a: Pérdida traumática de dientes por impacto.</span>
           </Card>
@@ -82,7 +82,7 @@ export default function SourcesView({ onBack }) {
 
       {/* Desglose por Módulo de Capacitación */}
       <section className="cases-sources-summary">
-        <h2 className="catalog-title">Trazabilidad por Caso</h2>
+        <h2 className="catalog-title">Trazabilidad por caso</h2>
         <div className="cases-sources-list">
           {SCHOOL_CASES.map((sc) => (
             <Card key={sc.id} className="case-source-row">

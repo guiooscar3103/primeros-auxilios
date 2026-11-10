@@ -134,8 +134,8 @@ export default function NutriaGuideAnimation({ incidentType = 'atragantamiento' 
       ],
     },
     diente: {
-      title: 'Manejo Inmediato de Avulsión Dental',
-      subtitle: 'Preservación de las células del ligamento periodontal y transporte seguro',
+      title: 'Manejo ante la Caída Completa de un Diente (Avulsión)',
+      subtitle: 'Preservación de las células de la raíz y transporte seguro en leche o solución salina',
       steps: [
         {
           stepNumber: 1,
@@ -207,7 +207,7 @@ export default function NutriaGuideAnimation({ incidentType = 'atragantamiento' 
     },
     chichon: {
       title: 'Valoración y Manejo de Golpes en la Cabeza',
-      subtitle: 'Aplicación segura de frío indirecto y detección de banderas rojas neurológicas',
+      subtitle: 'Aplicación segura de frío indirecto y detección de señales de alarma neurológicas',
       steps: [
         {
           stepNumber: 1,
@@ -231,7 +231,7 @@ export default function NutriaGuideAnimation({ incidentType = 'atragantamiento' 
         },
         {
           stepNumber: 3,
-          title: 'Vigilancia Activa de Banderas Rojas (Línea 123)',
+          title: 'Vigilancia Activa de Señales de Alarma (Línea 123)',
           situation: 'El niño permanece en reposo en la enfermería o aula tras el impacto.',
           action: 'Vigila los síntomas durante las horas siguientes. Si presenta vómitos repetidos, somnolencia anormal (no se despierta con estímulos normales), dolor de cabeza progresivo o pupilas de diferente tamaño (anisocoria), activa de inmediato la Línea 123.',
           caution: '¡NO esperes 24 horas si aparecen señales de alarma! La observación en casa o colegio solo aplica si el estudiante está 100% lúcido, activo y sin ningún síntoma neurológico.',
@@ -686,7 +686,7 @@ export default function NutriaGuideAnimation({ incidentType = 'atragantamiento' 
               <div className="flags-header-alert">
                 <ShieldAlert size={26} />
                 <div>
-                  <h4 className="flags-title">Semáforo de Banderas Rojas Neurológicas</h4>
+                  <h4 className="flags-title">Señales de Alarma Neurológicas (Banderas Rojas)</h4>
                   <p className="flags-sub">Si aparece CUALQUIERA de estos signos, activa de inmediato la Línea 123:</p>
                 </div>
               </div>
@@ -803,9 +803,9 @@ export default function NutriaGuideAnimation({ incidentType = 'atragantamiento' 
       <div className="nutria-guide-card__header">
         <div className="header-meta">
           <Badge variant="primary" icon={<Sparkles size={14} />}>
-            Demostración de la Nutria Médica Doc
+            Demostración de la nutria médica Doc
           </Badge>
-          <span className="mentor-label">Guía Oficial de Primeros Auxilios Escolares</span>
+          <span className="mentor-label">Guía oficial de primeros auxilios escolares</span>
         </div>
 
         {/* Selector de Modos de Aprendizaje */}
@@ -816,7 +816,7 @@ export default function NutriaGuideAnimation({ incidentType = 'atragantamiento' 
             onClick={() => setViewMode('secuencia')}
           >
             <Activity size={15} />
-            <span>Secuencia Demostrativa Paso a Paso</span>
+            <span>Secuencia demostrativa paso a paso</span>
           </button>
           <button
             type="button"
@@ -824,7 +824,7 @@ export default function NutriaGuideAnimation({ incidentType = 'atragantamiento' 
             onClick={() => setViewMode('infografia')}
           >
             <ImageIcon size={15} />
-            <span>Lámina Infográfica de Doc</span>
+            <span>Lámina infográfica de Doc</span>
           </button>
           <button
             type="button"
@@ -832,7 +832,7 @@ export default function NutriaGuideAnimation({ incidentType = 'atragantamiento' 
             onClick={() => setViewMode('video')}
           >
             <Video size={15} />
-            <span>Video Tutorial Animado P.A.S.</span>
+            <span>Video tutorial animado P.A.S.</span>
           </button>
         </div>
       </div>
